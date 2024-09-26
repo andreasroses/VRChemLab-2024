@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_Liquid
+  m_Name: MAT_Liquid1
   m_Shader: {fileID: -6465566751694194690, guid: bb510287a1a52044799b8157bb124567,
     type: 3}
   m_Parent: {fileID: 0}
@@ -42,7 +42,7 @@ Material:
     - _QueueOffset: 0
     - _WobbleX: 0
     - _WobbleZ: 0
-    - _fill: 0.528
+    - _fill: 0.361
     - _wobbleX: 0
     - _wobbleZ: 0
     m_Colors:
