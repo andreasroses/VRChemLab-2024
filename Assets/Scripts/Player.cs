@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform interactController;
     [SerializeField] private float interactRadius;
     [SerializeField] private LayerMask containersLayer;
-    private I_LiquidInteractable currLiquidHolding;
-    private I_LiquidInteractable currTargetContainer;
+    private LiquidInteractable currLiquidHolding;
+    private LiquidInteractable currTargetContainer;
     void Start()
     {
         
@@ -21,25 +21,29 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pourAction.action.WasPressedThisFrame()){
-            I_LiquidInteractable container;
-            if(checkForContainer(out container) && currLiquidHolding != null){
+        if(currLiquidHolding != null && checkForContainer(out LiquidInteractable container)){
+            bool shouldPour = currLiquidHolding.isSingleDropper
+                            ? pourAction.action.WasPressedThisFrame()
+                            : pourAction.action.IsPressed();
+
+            if(shouldPour){
                 currLiquidHolding.PourLiquid(container);
             }
         }
+
     }
 
     public void SelectInteract(SelectEnterEventArgs args){
         if(currLiquidHolding == null){
-            currLiquidHolding = args.interactableObject.transform.GetComponent<I_LiquidInteractable>()?.SelectInteractable();
+            currLiquidHolding = args.interactableObject.transform.GetComponent<LiquidInteractable>()?.SelectInteractable();
         }
     }
 
-    private bool checkForContainer(out I_LiquidInteractable foundContainer){
+    private bool checkForContainer(out LiquidInteractable foundContainer){
         foundContainer = null;
         Collider[] hitColliders = Physics.OverlapSphere(interactController.position, interactRadius, containersLayer);
         if(hitColliders.Any()){
-            foundContainer = hitColliders[0].gameObject.GetComponent<I_LiquidInteractable>();
+            foundContainer = hitColliders[0].gameObject.GetComponent<LiquidInteractable>();
             return true;
         }
         return false;

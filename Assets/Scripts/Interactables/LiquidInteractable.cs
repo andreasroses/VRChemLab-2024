@@ -1,22 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Beaker : MonoBehaviour, I_LiquidInteractable
+public class LiquidInteractable : MonoBehaviour
 {
-    [SerializeField] private Renderer rend;
-    [SerializeField] private float pourRate;
-    public I_LiquidInteractable SelectInteractable(){
+    [SerializeField] protected Renderer rend;
+    [SerializeField] protected float pourRate;
+    public bool isSingleDropper;
+    public LiquidInteractable SelectInteractable(){
         return this;
     }
 
-    public void PourLiquid(I_LiquidInteractable container){
+    public virtual void PourLiquid(LiquidInteractable container){
         float currFill = rend.material.GetFloat("_fill");
         rend.material.SetFloat("_fill", currFill - pourRate);
         container.AbsorbLiquid(pourRate);
     }
 
-    public void AbsorbLiquid(float addFill){
+    public virtual void AbsorbLiquid(float addFill){
         float currFill = rend.material.GetFloat("_fill");
         rend.material.SetFloat("_fill", currFill + addFill);
     }
