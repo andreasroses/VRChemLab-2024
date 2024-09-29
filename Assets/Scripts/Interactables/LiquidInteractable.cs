@@ -14,12 +14,16 @@ public class LiquidInteractable : MonoBehaviour
 
     public virtual void PourLiquid(LiquidInteractable container){
         float currFill = rend.material.GetFloat("_fill");
-        rend.material.SetFloat("_fill", currFill - pourRate);
-        container.AbsorbLiquid(pourRate);
+        if(currFill >= -2 + pourRate){
+            rend.material.SetFloat("_fill", currFill - pourRate);
+            container.AbsorbLiquid(pourRate);
+        }
     }
 
     public virtual void AbsorbLiquid(float addFill){
         float currFill = rend.material.GetFloat("_fill");
-        rend.material.SetFloat("_fill", currFill + addFill);
+        if(currFill < 2 - pourRate){
+            rend.material.SetFloat("_fill", currFill + addFill);
+        }
     }
 }

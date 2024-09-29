@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform interactController;
     [SerializeField] private float interactRadius;
     [SerializeField] private LayerMask containersLayer;
+    [SerializeField] private float pourCooldown = 0.4f;
+    private float pourTimer = 0f;
     private LiquidInteractable currLiquidHolding;
     private LiquidInteractable currTargetContainer;
     void Start()
@@ -21,14 +23,27 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currLiquidHolding != null && checkForContainer(out LiquidInteractable container)){
-            bool shouldPour = currLiquidHolding.isSingleDropper
-                            ? pourAction.action.WasPressedThisFrame()
-                            : pourAction.action.IsPressed();
+        if (currLiquidHolding != null && checkForContainer(out LiquidInteractable container)){
+            bool shouldPour = false;
 
+            if(currLiquidHolding.isSingleDropper){
+                if(pourAction.action.WasPressedThisFrame()){
+                    shouldPour = true;
+                }
+            }
+            else if(pourAction.action.IsPressed()){
+                if(pourTimer <= 0){
+                    shouldPour = true;
+                    pourTimer = pourCooldown;
+                }
+            }
             if(shouldPour){
                 currLiquidHolding.PourLiquid(container);
             }
+        }
+
+        if(pourTimer > 0){
+            pourTimer -= Time.deltaTime;
         }
 
     }
@@ -39,12 +54,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Deselect(){
+        if(currLiquidHolding != null){
+            currLiquidHolding = null;
+        }
+    }
+
     private bool checkForContainer(out LiquidInteractable foundContainer){
         foundContainer = null;
         Collider[] hitColliders = Physics.OverlapSphere(interactController.position, interactRadius, containersLayer);
-        if(hitColliders.Any()){
-            foundContainer = hitColliders[0].gameObject.GetComponent<LiquidInteractable>();
-            return true;
+        foreach(Collider c in hitColliders){
+            if(c.gameObject != currLiquidHolding.gameObject){
+                foundContainer = c.gameObject.GetComponent<LiquidInteractable>();
+                return true;
+            }
         }
         return false;
     }

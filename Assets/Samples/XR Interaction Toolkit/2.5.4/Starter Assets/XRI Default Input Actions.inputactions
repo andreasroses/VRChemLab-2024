@@ -1509,6 +1509,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Pour",
+                    "type": "Button",
+                    "id": "599134e6-a42e-4464-8fec-1ce7d868c3d7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Select Value",
                     "type": "Value",
                     "id": "39bbf1ac-21a3-413d-90f6-6dbf6efeaabe",
@@ -1762,6 +1771,17 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "Generic XR Controller",
                     "action": "Scale Delta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22ecc012-369f-4723-8623-80a5bbd36544",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Pour",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
