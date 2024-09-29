@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currLiquidHolding != null && checkForContainer(out LiquidInteractable container)){
+        if(currLiquidHolding != null && checkForContainer(out LiquidInteractable container)){
             bool shouldPour = false;
 
             if(currLiquidHolding.isSingleDropper){
