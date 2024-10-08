@@ -26,8 +26,10 @@ public class LiquidInteractable : MonoBehaviour
     }
 
     public virtual void AbsorbLiquid(float addFill){
+        if (isPouring) return;
         float currFill = rend.material.GetFloat("_fill");
         if(currFill < 2 - pourRate){
+            isPouring = true;
             StartCoroutine(SmoothFill(currFill, currFill + addFill, absorbSpeed));
         }
     }
