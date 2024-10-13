@@ -12,7 +12,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float interactRadius;
     [SerializeField] private LayerMask containersLayer;
     [SerializeField] private float pourCooldown = 0.4f;
+    [Header("Flow Settings")]
+    [SerializeField] private GameObject singleFlow;
+    [SerializeField] private GameObject regularFlow;
+    [SerializeField] private float verticalOffset = 10;
     private float pourTimer = 0f;
+    private bool isFlowing;
     private LiquidInteractable currLiquidHolding;
     private LiquidInteractable currTargetContainer;
     void Start()
@@ -39,6 +44,10 @@ public class Player : MonoBehaviour
             }
             if(shouldPour){
                 currLiquidHolding.PourLiquid(container);
+                if(!isFlowing){
+                    activateFlowParticles(currLiquidHolding.isSingleDropper);
+                    isFlowing = true;
+                }
             }
         }
 
@@ -57,6 +66,9 @@ public class Player : MonoBehaviour
     public void Deselect(){
         if(currLiquidHolding != null){
             currLiquidHolding = null;
+            isFlowing = false;
+            singleFlow.SetActive(false);
+            regularFlow.SetActive(false);
         }
     }
 
@@ -70,5 +82,16 @@ public class Player : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void activateFlowParticles(bool isSingle){
+        GameObject flow;
+        if(isSingle){
+            flow = singleFlow;
+        }else{
+            flow = regularFlow;
+        }
+        flow.transform.position = currLiquidHolding.transform.position - new Vector3(0,verticalOffset, 0);
+        flow.SetActive(true);
     }
 }
