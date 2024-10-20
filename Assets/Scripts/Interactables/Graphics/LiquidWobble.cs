@@ -9,6 +9,7 @@ public class Wobble : MonoBehaviour
     Vector3 velocity;
     Vector3 lastRot;  
     Vector3 angularVelocity;
+    [SerializeField] private float objectHeight;
     public float MaxWobble = 0.03f;
     public float WobbleSpeed = 1f;
     public float Recovery = 1f;
@@ -18,11 +19,16 @@ public class Wobble : MonoBehaviour
     float wobbleAmountToAddZ;
     float pulse;
     float time = 0.5f;
-    
+    private MaterialPropertyBlock mpb;
     // Use this for initialization
     void Start()
     {
         rend = GetComponent<Renderer>();
+        mpb = new MaterialPropertyBlock();
+
+        mpb.SetFloat("_objectHeight", objectHeight); // Make sure this matches your shader property name
+
+        rend.SetPropertyBlock(mpb);
     }
     private void Update()
     {

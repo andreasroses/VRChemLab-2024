@@ -128,8 +128,9 @@ Material:
     - _WobbleZ: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _cylinderHeight: 0.3
-    - _fill: 0.424
+    - _cylinderHeight: 0.15
+    - _fill: 0.076
+    - _objectHeight: 0.2
     - _tmp: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
