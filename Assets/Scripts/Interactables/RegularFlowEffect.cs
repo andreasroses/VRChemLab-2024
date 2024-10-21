@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PourDetector : MonoBehaviour
+public class RegularFlowEffect : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,9 +14,5 @@ public class PourDetector : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private float CalculatePourAngle(){
-        return transform.forward.y * Mathf.Rad2Deg;
     }
 }

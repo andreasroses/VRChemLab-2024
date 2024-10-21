@@ -85,13 +85,8 @@ public class Player : MonoBehaviour
     }
 
     private void activateFlowParticles(bool isSingle){
-        GameObject flow;
         if(isSingle){
-            flow = singleFlow;
-        }else{
-            flow = regularFlow;
+            currLiquidHolding.PlaceParticlesAtFlowPoint(singleFlow);
         }
-        flow.transform.position = currLiquidHolding.transform.position - new Vector3(0,verticalOffset, 0);
-        flow.SetActive(true);
     }
 }
