@@ -33,6 +33,8 @@ public class Wobble : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
+        Vector3 upVector = transform.up;
+        mpb.SetVector("_objectUp", new Vector4(upVector.x, upVector.y, upVector.z, 0));
         // decrease wobble over time
         wobbleAmountToAddX = Mathf.Lerp(wobbleAmountToAddX, 0, Time.deltaTime * (Recovery));
         wobbleAmountToAddZ = Mathf.Lerp(wobbleAmountToAddZ, 0, Time.deltaTime * (Recovery));

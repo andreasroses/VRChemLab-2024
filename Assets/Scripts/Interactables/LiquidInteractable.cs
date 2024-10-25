@@ -8,22 +8,31 @@ public enum FlowType{
 public class LiquidInteractable : MonoBehaviour
 {
     [SerializeField] protected Renderer rend;
-    [SerializeField] protected Transform pourOrigin;
     [SerializeField] protected float pourRate;
     [SerializeField] protected float pourSpeed;
     [SerializeField] protected float absorbSpeed;
+    [SerializeField] protected Component effect;
+    [SerializeField] public PourDetector pd;
     public bool isSingleDropper;
     private bool isPouring = false;
     private GameObject flow = null;
+    private I_PourEffect pourEffect;
+
+    void Start(){
+        pourEffect = (I_PourEffect) effect;
+    }
     public LiquidInteractable SelectInteractable(){
         return this;
     }
-
+    public void InitializePourEffect<T>(T component){
+        pourEffect.Initialize(component);
+    }
     public virtual void PourLiquid(LiquidInteractable container){
         if (isPouring) return;
         float currFill = rend.material.GetFloat("_fill");
         if(currFill >= -1 + pourRate){
             isPouring = true;
+            pourEffect.DisplayPour();
             StartCoroutine(SmoothFill(currFill, currFill - pourRate, pourSpeed));
             container.AbsorbLiquid(pourRate);
         }
@@ -38,6 +47,10 @@ public class LiquidInteractable : MonoBehaviour
         }
     }
 
+    public void StopPour(){
+        pourEffect.EndPour();
+    }
+
     private IEnumerator SmoothFill(float startFill, float endFill, float speed){
         float time = 0;
         while(time < 0.5){
@@ -50,9 +63,11 @@ public class LiquidInteractable : MonoBehaviour
         isPouring = false;
     }
 
-    public void PlaceParticlesAtFlowPoint(GameObject flow){
-        flow.transform.position = pourOrigin.position;
-        flow.SetActive(true);
-        this.flow = flow;
+    public void HighlightOutline(){
+        //highlight select outline
+    }
+
+    public void HideOutline(){
+        //unhighlight outline
     }
 }

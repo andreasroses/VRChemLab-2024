@@ -6,4 +6,6 @@ public interface I_PourEffect
 {
     void Initialize<T>(T component);
     void DisplayPour();
+
+    void EndPour();
 }

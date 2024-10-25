@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PourDetector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int pourThreshold = 45;
+    [System.NonSerialized]public bool isPouring = false;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        bool pourCheck = CalculatePourAngle() < pourThreshold;
+
+        if(isPouring != pourCheck){
+            isPouring = pourCheck;
+        }
     }
 
     private float CalculatePourAngle(){
