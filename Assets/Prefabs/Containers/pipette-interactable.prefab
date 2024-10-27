@@ -272,6 +272,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7856962429100916049}
   m_SourcePrefab: {fileID: 100100000, guid: 962eb04bf1b1e724dbb40dbd73d26af1, type: 3}
+--- !u!23 &2865833050479208691 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 962eb04bf1b1e724dbb40dbd73d26af1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3460152477293327479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4003232935531303836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 962eb04bf1b1e724dbb40dbd73d26af1,
@@ -296,12 +302,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adc4762166ef9440b1b80c845312f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 2825364117378534523}
+  liquidRend: {fileID: 2825364117378534523}
   pourRate: 0.01
   pourSpeed: 1
   absorbSpeed: 1
   effect: {fileID: 9043084333003329725}
   pd: {fileID: 0}
+  rend: {fileID: 2865833050479208691}
   outlineMaterialIndex: 2
   isSingleDropper: 1
 --- !u!114 &9043084333003329725

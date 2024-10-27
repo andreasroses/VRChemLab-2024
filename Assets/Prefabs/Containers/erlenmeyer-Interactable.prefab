@@ -436,12 +436,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adc4762166ef9440b1b80c845312f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 1865567283725866545}
+  liquidRend: {fileID: 1865567283725866545}
   pourRate: 0.18
   pourSpeed: 0.7
   absorbSpeed: 0.7
   effect: {fileID: 6022247109729466505}
   pd: {fileID: 7137595488525142714}
+  rend: {fileID: 7977661532143375022}
   outlineMaterialIndex: 1
   isSingleDropper: 0
 --- !u!114 &7137595488525142714

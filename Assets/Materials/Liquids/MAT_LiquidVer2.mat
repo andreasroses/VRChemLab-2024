@@ -129,7 +129,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _cylinderHeight: 0.15
-    - _fill: 0.279
+    - _fill: 0.25
     - _objectHeight: 0.2
     - _tmp: 0
     m_Colors:

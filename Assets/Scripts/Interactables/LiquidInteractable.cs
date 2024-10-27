@@ -8,7 +8,7 @@ public enum FlowType{
 public class LiquidInteractable : MonoBehaviour
 {
     [Header("Fill Effect")]
-    [SerializeField] protected Renderer rend;
+    [SerializeField] protected Renderer liquidRend;
     [SerializeField] protected float pourRate;
     [SerializeField] protected float pourSpeed;
     [SerializeField] protected float absorbSpeed;
@@ -18,6 +18,7 @@ public class LiquidInteractable : MonoBehaviour
     [SerializeField] public PourDetector pd;
     
     [Header("OutlineEffect")]
+    [SerializeField] private Renderer rend;
     [SerializeField] private int outlineMaterialIndex = 1;
     public bool isSingleDropper;
     private bool isPouring = false;
@@ -68,7 +69,7 @@ public class LiquidInteractable : MonoBehaviour
         while(time < 0.5){
             time += Time.deltaTime * speed;
             float newFill = Mathf.Lerp(startFill, endFill, time);
-            rend.material.SetFloat("_fill", newFill);
+            liquidRend.material.SetFloat("_fill", newFill);
             yield return null;
         }
         rend.material.SetFloat("_fill", endFill);
