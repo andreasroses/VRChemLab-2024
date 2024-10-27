@@ -302,6 +302,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 8588159678485206347}
   pourRate: 0.01
+  pourSpeed: 0
+  absorbSpeed: 0
+  effect: {fileID: 0}
+  pd: {fileID: 0}
+  outlineMaterialIndex: 1
   isSingleDropper: 1
 --- !u!1 &7269773722207123137
 GameObject:
@@ -421,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291d52eda5c2daf489ad0b25a20e3217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectHeight: 0
   MaxWobble: 0.03
   WobbleSpeed: 1
   Recovery: 1

@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5508364205085590073}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00020053887, y: 0.009791141, z: 0.0000019967554, w: -0.9999521}
-  m_LocalPosition: {x: -0.070475675, y: 0.011000178, z: -0.0016436421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0705, y: 0.0115, z: -0.0002}
   m_LocalScale: {x: 0.97795933, y: 0.7925886, z: 0.7925885}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4003232935531303836}
-  m_LocalEulerAnglesHint: {x: 178.878, y: 180.023, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6617770761007513976
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291d52eda5c2daf489ad0b25a20e3217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectHeight: 0.1
+  objectHeight: 0.2
   MaxWobble: 0.005
   WobbleSpeed: 0.7
   Recovery: 1
@@ -211,9 +211,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 962eb04bf1b1e724dbb40dbd73d26af1,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 962eb04bf1b1e724dbb40dbd73d26af1,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9cccea665b138ec4c9a38c405f8554cf, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 962eb04bf1b1e724dbb40dbd73d26af1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57cb0cd9e13cf174c8988126304d4a5e, type: 2}
     - target: {fileID: 919132149155446097, guid: 962eb04bf1b1e724dbb40dbd73d26af1,
         type: 3}
       propertyPath: m_Name
@@ -257,6 +267,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6572845321304021222}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 962eb04bf1b1e724dbb40dbd73d26af1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7856962429100916049}
   m_SourcePrefab: {fileID: 100100000, guid: 962eb04bf1b1e724dbb40dbd73d26af1, type: 3}
 --- !u!4 &4003232935531303836 stripped
 Transform:
@@ -288,6 +302,7 @@ MonoBehaviour:
   absorbSpeed: 1
   effect: {fileID: 9043084333003329725}
   pd: {fileID: 0}
+  outlineMaterialIndex: 2
   isSingleDropper: 1
 --- !u!114 &9043084333003329725
 MonoBehaviour:
@@ -325,7 +340,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -481,3 +496,25 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!64 &7856962429100916049
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379055237479827750}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6852428050191318996, guid: 962eb04bf1b1e724dbb40dbd73d26af1, type: 3}

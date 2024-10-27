@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
         if(currTargetContainer != container){
             currTargetContainer?.HideOutline();
             currTargetContainer = container;
+            currTargetContainer.HighlightOutline();
         }
 
         bool shouldPour = currLiquidHolding.isSingleDropper
