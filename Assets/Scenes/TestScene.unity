@@ -33207,11 +33207,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6742576099620981407, guid: 6d71f34c2fab2e4439db9e8ff84f1018,
-        type: 3}
-      propertyPath: MaxWobble
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 7685327767534666518, guid: 6d71f34c2fab2e4439db9e8ff84f1018,
         type: 3}
       propertyPath: m_Name
