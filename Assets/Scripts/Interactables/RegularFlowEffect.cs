@@ -5,13 +5,13 @@ using UnityEngine;
 public class RegularFlowEffect : MonoBehaviour, I_PourEffect
 {
     [SerializeField] private Transform pourOrigin;
-    private LineRenderer flowLine;
+    private LineRenderer flowLine = null;
     private float animSpeed = 1.75f;
     private Vector3 targetPosition;
     private Coroutine pourRoutine;
     public void Initialize<T>(T component)
     {
-        if(component is LineRenderer line && flowLine == null){
+        if(component is UnityEngine.LineRenderer line){
             flowLine = line;
         }
         else{
@@ -27,8 +27,12 @@ public class RegularFlowEffect : MonoBehaviour, I_PourEffect
 
     public void EndPour()
     {
-        StopCoroutine(pourRoutine);
-        StartCoroutine(PourEnd());
+        if(pourRoutine != null){
+            StopCoroutine(pourRoutine);
+            StartCoroutine(PourEnd());
+            pourRoutine = null;
+        }
+        
     }
 
     private IEnumerator BeginPour()

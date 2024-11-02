@@ -7,7 +7,7 @@ public class SingleFlowEffect : MonoBehaviour, I_PourEffect
     [SerializeField] private Transform pourOrigin;
     private ParticleSystem flowParticles;
     public void Initialize<T>(T component){
-        if(component is ParticleSystem particles && flowParticles == null){
+        if(component is ParticleSystem particles){
             flowParticles = particles;
         }
         else{

@@ -22,7 +22,6 @@ public class LiquidInteractable : MonoBehaviour
     [SerializeField] private int outlineMaterialIndex = 1;
     public bool isSingleDropper;
     private bool isPouring = false;
-    private GameObject flow = null;
     private I_PourEffect pourEffect;
     
     //more outline effect
@@ -32,7 +31,14 @@ public class LiquidInteractable : MonoBehaviour
         pourEffect = (I_PourEffect) effect;
         outlineMaterial = rend.materials[outlineMaterialIndex];
         outlineColor = outlineMaterial.GetColor("_OutlineColor");
+    }
 
+    void Update(){
+        if(!isSingleDropper){
+            if(pd.endPour){
+                StopPour();
+            }
+        }
     }
     public LiquidInteractable SelectInteractable(){
         return this;
@@ -41,8 +47,8 @@ public class LiquidInteractable : MonoBehaviour
         pourEffect.Initialize(component);
     }
     public virtual void PourLiquid(LiquidInteractable container){
-        if (isPouring) return;
-        float currFill = rend.material.GetFloat("_fill");
+        if(isPouring) return;
+        float currFill = liquidRend.material.GetFloat("_fill");
         if(currFill >= -1 + pourRate){
             isPouring = true;
             pourEffect.DisplayPour();
@@ -52,8 +58,8 @@ public class LiquidInteractable : MonoBehaviour
     }
 
     public virtual void AbsorbLiquid(float addFill){
-        if (isPouring) return;
-        float currFill = rend.material.GetFloat("_fill");
+        if(isPouring) return;
+        float currFill = liquidRend.material.GetFloat("_fill");
         if(currFill < 1 - pourRate){
             isPouring = true;
             StartCoroutine(SmoothFill(currFill, currFill + addFill, absorbSpeed));
@@ -72,7 +78,7 @@ public class LiquidInteractable : MonoBehaviour
             liquidRend.material.SetFloat("_fill", newFill);
             yield return null;
         }
-        rend.material.SetFloat("_fill", endFill);
+        liquidRend.material.SetFloat("_fill", endFill);
         isPouring = false;
     }
 

@@ -32,31 +32,31 @@ public class Player : MonoBehaviour
         }
 
         LiquidInteractable container;
-        if(currLiquidHolding == null || !checkForContainer(out container)){
-            currTargetContainer?.HideOutline();
+        if(currLiquidHolding == null){
             return;
         }
+        if(checkForContainer(out container)){
+            if(currTargetContainer != container){
+                currTargetContainer?.HideOutline();
+                currTargetContainer = container;
+                currTargetContainer.HighlightOutline();
+            }
 
-        if(currTargetContainer != container){
-            currTargetContainer?.HideOutline();
-            currTargetContainer = container;
-            currTargetContainer.HighlightOutline();
-        }
+            bool shouldPour = currLiquidHolding.isSingleDropper
+                ? pourAction.action.WasPressedThisFrame()
+                : currLiquidHolding.pd.isPouring && pourTimer <= 0;
 
-        bool shouldPour = currLiquidHolding.isSingleDropper
-            ? pourAction.action.WasPressedThisFrame()
-            : currLiquidHolding.pd.isPouring && pourTimer <= 0;
-
-        if(shouldPour){
-            currLiquidHolding.PourLiquid(container);
-            if(!currLiquidHolding.isSingleDropper){
-                pourTimer = pourCooldown;
+            if(shouldPour){
+                currLiquidHolding.PourLiquid(container);
+                if(!currLiquidHolding.isSingleDropper){
+                    pourTimer = pourCooldown;
+                }
             }
         }
-        else{
-            currLiquidHolding.StopPour();
-            currTargetContainer = null;
+        else if(currTargetContainer != null){
+            currTargetContainer.HideOutline();
         }
+        
     }
 
     public void SelectInteract(SelectEnterEventArgs args){
@@ -73,6 +73,10 @@ public class Player : MonoBehaviour
 
     public void Deselect(){
         if(currLiquidHolding != null){
+            if(currTargetContainer != null){
+                currTargetContainer.HideOutline();
+                currTargetContainer = null;
+            }
             currLiquidHolding = null;
         }
     }
