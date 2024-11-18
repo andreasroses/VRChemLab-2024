@@ -5,7 +5,7 @@ using UnityEngine;
 public enum FlowType{
     Single, Regular
 }
-public class LiquidInteractable : MonoBehaviour
+public class LabContainer : MonoBehaviour
 {
     [Header("Fill Effect")]
     [SerializeField] protected Renderer liquidRend;
@@ -40,13 +40,10 @@ public class LiquidInteractable : MonoBehaviour
             }
         }
     }
-    public LiquidInteractable SelectInteractable(){
-        return this;
-    }
     public void InitializePourEffect<T>(T component){
         pourEffect.Initialize(component);
     }
-    public virtual void PourLiquid(LiquidInteractable container){
+    public virtual void PourLiquid(LabContainer container){
         if(isPouring) return;
         float currFill = liquidRend.material.GetFloat("_fill");
         if(currFill >= -1 + pourRate){

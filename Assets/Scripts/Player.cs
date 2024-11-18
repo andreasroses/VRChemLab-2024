@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 public class Player : MonoBehaviour
 {
+    public int ID = 1;
     [SerializeField] private InputActionProperty pourAction;
     [Header("Interaction Settings")]
     [SerializeField] private Transform interactController;
@@ -15,10 +17,10 @@ public class Player : MonoBehaviour
     [Header("Flow References")]
     [SerializeField] private ParticleSystem singleFlow;
     [SerializeField] private LineRenderer regularFlow;
+    
     private float pourTimer = 0f;
-    private bool isFlowing;
-    private LiquidInteractable currLiquidHolding;
-    private LiquidInteractable currTargetContainer;
+    private LabContainer heldContainer;
+    private LabContainer targetContainer;
     void Start()
     {
         
@@ -31,62 +33,62 @@ public class Player : MonoBehaviour
             pourTimer -= Time.deltaTime;
         }
 
-        LiquidInteractable container;
-        if(currLiquidHolding == null){
+        LabContainer container;
+        if(heldContainer == null){
             return;
         }
         if(checkForContainer(out container)){
-            if(currTargetContainer != container){
-                currTargetContainer?.HideOutline();
-                currTargetContainer = container;
-                currTargetContainer.HighlightOutline();
+            if(targetContainer != container){
+                targetContainer?.HideOutline();
+                targetContainer = container;
+                targetContainer.HighlightOutline();
             }
 
-            bool shouldPour = currLiquidHolding.isSingleDropper
+            bool shouldPour = heldContainer.isSingleDropper
                 ? pourAction.action.WasPressedThisFrame()
-                : currLiquidHolding.pd.isPouring && pourTimer <= 0;
+                : heldContainer.pd.isPouring && pourTimer <= 0;
 
             if(shouldPour){
-                currLiquidHolding.PourLiquid(container);
-                if(!currLiquidHolding.isSingleDropper){
+                heldContainer.PourLiquid(container);
+                if(!heldContainer.isSingleDropper){
                     pourTimer = pourCooldown;
                 }
             }
         }
-        else if(currTargetContainer != null){
-            currTargetContainer.HideOutline();
+        else if(targetContainer != null){
+            targetContainer.HideOutline();
         }
         
     }
 
     public void SelectInteract(SelectEnterEventArgs args){
-        if(currLiquidHolding == null){
-            currLiquidHolding = args.interactableObject.transform.GetComponent<LiquidInteractable>()?.SelectInteractable();
-            if(currLiquidHolding.isSingleDropper){
-                currLiquidHolding.InitializePourEffect(singleFlow);
+        if(heldContainer == null){
+            heldContainer = args.interactableObject.transform.GetComponent<LabInteractable>()?.SelectInteractable(ID);
+            if(heldContainer.isSingleDropper){
+                heldContainer.InitializePourEffect(singleFlow);
             }
             else{
-                currLiquidHolding.InitializePourEffect(regularFlow);
+                heldContainer.InitializePourEffect(regularFlow);
             }
         }
     }
 
     public void Deselect(){
-        if(currLiquidHolding != null){
-            if(currTargetContainer != null){
-                currTargetContainer.HideOutline();
-                currTargetContainer = null;
+        if(heldContainer != null){
+            if(targetContainer != null){
+                targetContainer.HideOutline();
+                targetContainer = null;
             }
-            currLiquidHolding = null;
+            heldContainer = null;
         }
     }
 
-    private bool checkForContainer(out LiquidInteractable foundContainer){
+    private bool checkForContainer(out LabContainer foundContainer){
         foundContainer = null;
         Collider[] hitColliders = Physics.OverlapSphere(interactController.position, interactRadius, containersLayer);
         foreach(Collider c in hitColliders){
-            if(c.gameObject != currLiquidHolding.gameObject){
-                foundContainer = c.gameObject.GetComponent<LiquidInteractable>();
+            if(c.gameObject != heldContainer.gameObject){
+                foundContainer = c.gameObject.GetComponent<LabContainer>();
                 return true;
             }
         }

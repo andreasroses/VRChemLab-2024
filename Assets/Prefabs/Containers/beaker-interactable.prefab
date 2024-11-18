@@ -148,6 +148,8 @@ GameObject:
   - component: {fileID: 2964234156748321492}
   - component: {fileID: 7851543644551874411}
   - component: {fileID: 887099064716695585}
+  - component: {fileID: 639363493756021677}
+  - component: {fileID: 7090113969874150584}
   m_Layer: 6
   m_Name: beaker-interactable
   m_TagString: LiquidInteractable
@@ -457,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b52ca7dc27eb749ba4026cc87f1855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pourThreshold: 45
+  pourThreshold: 95
 --- !u!114 &887099064716695585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,3 +473,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pourOrigin: {fileID: 4922693512489900287}
+--- !u!114 &639363493756021677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685327767534666518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 483054160
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 7090113969874150584}
+--- !u!114 &7090113969874150584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685327767534666518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0
