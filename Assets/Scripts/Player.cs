@@ -73,13 +73,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Deselect(){
+    public void Deselect(SelectExitEventArgs args){
         if(heldContainer != null){
             if(targetContainer != null){
                 targetContainer.HideOutline();
                 targetContainer = null;
             }
             heldContainer = null;
+            args.interactableObject.transform.GetComponent<LabInteractable>()?.DeselectInteractable();
         }
     }
 

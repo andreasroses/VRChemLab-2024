@@ -4,46 +4,81 @@ using UnityEngine;
 //using Fusion.XRShared;
 using Fusion;
 using Fusion.XR.Shared;
+using System;
 public class NetworkLabInteractable : NetworkBehaviour
 {
     public NetworkTransform networkTransform;
-    [Networked]
-    public int OwnerID { get; set; }
-    [Networked]
-    public Vector3 LocalPositionOffset { get; set; }
-    [Networked]
-    public Quaternion LocalRotationOffset { get; set; }
-    public bool isTakingAuthority = false;
     [HideInInspector]
+    [Networked]
+    public int OwnerID { get; set; } = -1;
+    [HideInInspector]
+    [Networked]
+    public PourData currentPourData { get; set; }
+    [HideInInspector]
+    [Networked]
+    public AbsorbData currentAbsorbData { get; set; }
+    private bool isTakingAuthority = false;
     public LabInteractable labInteractable;
-    void Start()
+    ChangeDetector labChangeDetector;
+    void Awake()
     {
-        
+        networkTransform = GetComponent<NetworkTransform>();
+    }
+    public override void Spawned()
+    {
+        base.Spawned();
+        labChangeDetector = GetChangeDetector(ChangeDetector.Source.SnapshotFrom);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void FixedUpdateNetwork()
     {
-        
-    }
-
-    public async virtual void LocalGrab()
+        int newOwner = -1;
+        if (TryDetectChange(labChangeDetector, nameof(OwnerID), out newOwner))
         {
-            // Ask and wait to receive the stateAuthority to move the object
-            isTakingAuthority = true;
-            await Object.WaitForStateAuthority();
-            isTakingAuthority = false;
-
-            // We waited to have the state authority before setting Networked vars
-            LocalPositionOffset = labInteractable.localPositionOffset;
-            LocalRotationOffset = labInteractable.localRotationOffset;
-
-            if(labInteractable.currentOwnerID < 0)
-            {
-                // The labInteractable has already been ungrabbed
-                return;
-            }
-            // Update the CurrentGrabber in order to start following position in the FixedUpdateNetwork
-            //CurrentGrabber = labInteractable.currentGrabber.networkGrabber;
+            labInteractable.currentOwnerID = newOwner;
         }
+
+    }
+
+    public override void Render()
+    {
+        PourData newPour;
+        AbsorbData newAbsorb;
+        if (!Object.HasStateAuthority && TryDetectChange(labChangeDetector, nameof(currentPourData), out newPour))
+        {
+            labInteractable.LocalPour(newPour);
+        }
+        if (!Object.HasStateAuthority && TryDetectChange(labChangeDetector, nameof(currentAbsorbData), out newAbsorb))
+        {
+            labInteractable.LocalAbsorb(newAbsorb);
+        }
+    }
+    public async void LocalGrab(int newOwner)
+    {
+        isTakingAuthority = true;
+        await Object.WaitForStateAuthority();
+        isTakingAuthority = false;
+        OwnerID = newOwner;
+    }
+
+    public void LocalUngrab()
+    {
+        OwnerID = -1;
+    }
+
+
+    bool TryDetectChange<T>(ChangeDetector changeDetector, string variableName, out T newValue) where T : unmanaged
+    {
+        newValue = default;
+        foreach (var changedNetworkedVarName in changeDetector.DetectChanges(this, out var previous, out var current))
+        {
+            if (changedNetworkedVarName == variableName)
+            {
+                var reader = GetPropertyReader<T>(changedNetworkedVarName);
+                newValue = reader.Read(current);
+                return true;
+            }
+        }
+        return false;
+    }
 }

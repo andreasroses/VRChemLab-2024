@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 6568420256684256991}
   - component: {fileID: 2465377900909984722}
   - component: {fileID: 9202761762437853687}
+  - component: {fileID: 6173062142178715947}
   m_Layer: 6
   m_Name: erlenmeyer-Interactable
   m_TagString: LiquidInteractable
@@ -485,10 +486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3d5e40e4b218b4e99db78d055663f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0, w: 0}
+  networkLabInteractable: {fileID: 6173062142178715947}
   labContainer: {fileID: 5362255851807355750}
-  currentOwnerID: 1
+  currentOwnerID: -1
 --- !u!114 &2465377900909984722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,10 +503,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 2526937603
   ObjectInterest: 1
-  Flags: 262145
+  Flags: 524289
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 9202761762437853687}
+  - {fileID: 6173062142178715947}
 --- !u!114 &9202761762437853687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,3 +524,18 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!114 &6173062142178715947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8482147909517439867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2b6a2117485c745b39d80f24425524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkTransform: {fileID: 9202761762437853687}
+  _OwnerID: 0
+  labInteractable: {fileID: 6568420256684256991}

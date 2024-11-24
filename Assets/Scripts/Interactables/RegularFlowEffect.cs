@@ -8,7 +8,7 @@ public class RegularFlowEffect : MonoBehaviour, I_PourEffect
     private LineRenderer flowLine = null;
     private float animSpeed = 1.75f;
     private Vector3 targetPosition;
-    private Coroutine pourRoutine;
+    private Coroutine pourRoutine = null;
     public void Initialize<T>(T component)
     {
         if(component is UnityEngine.LineRenderer line){
@@ -21,8 +21,8 @@ public class RegularFlowEffect : MonoBehaviour, I_PourEffect
     
     public void DisplayPour()
     {
-        flowLine.gameObject.SetActive(true);
-        pourRoutine = StartCoroutine(BeginPour());
+        //flowLine.gameObject.SetActive(true);
+        //pourRoutine = StartCoroutine(BeginPour());
     }
 
     public void EndPour()

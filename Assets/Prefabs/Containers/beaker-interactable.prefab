@@ -150,6 +150,8 @@ GameObject:
   - component: {fileID: 887099064716695585}
   - component: {fileID: 639363493756021677}
   - component: {fileID: 7090113969874150584}
+  - component: {fileID: 2873461308013733963}
+  - component: {fileID: 8175494082535094817}
   m_Layer: 6
   m_Name: beaker-interactable
   m_TagString: LiquidInteractable
@@ -487,10 +489,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 483054160
   ObjectInterest: 1
-  Flags: 262145
+  Flags: 524289
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 7090113969874150584}
+  - {fileID: 2873461308013733963}
 --- !u!114 &7090113969874150584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,3 +510,33 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!114 &2873461308013733963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685327767534666518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2b6a2117485c745b39d80f24425524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkTransform: {fileID: 7090113969874150584}
+  _OwnerID: -1
+  labInteractable: {fileID: 8175494082535094817}
+--- !u!114 &8175494082535094817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685327767534666518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3d5e40e4b218b4e99db78d055663f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkLabInteractable: {fileID: 2873461308013733963}
+  labContainer: {fileID: 2964234156748321492}
+  currentOwnerID: -1
