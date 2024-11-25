@@ -7,7 +7,8 @@ using Fusion.XR.Shared;
 using System;
 public class NetworkLabInteractable : NetworkBehaviour
 {
-    public NetworkTransform networkTransform;
+    [Networked]
+    public NetworkTransform networkTransform { get; set; }
     [HideInInspector]
     [Networked]
     public int OwnerID { get; set; } = -1;
@@ -44,21 +45,28 @@ public class NetworkLabInteractable : NetworkBehaviour
     {
         PourData newPour;
         AbsorbData newAbsorb;
-        if (!Object.HasStateAuthority && TryDetectChange(labChangeDetector, nameof(currentPourData), out newPour))
+        if (TryDetectChange(labChangeDetector, nameof(currentPourData), out newPour))
         {
             labInteractable.LocalPour(newPour);
         }
-        if (!Object.HasStateAuthority && TryDetectChange(labChangeDetector, nameof(currentAbsorbData), out newAbsorb))
+        if (TryDetectChange(labChangeDetector, nameof(currentAbsorbData), out newAbsorb))
         {
             labInteractable.LocalAbsorb(newAbsorb);
         }
     }
     public async void LocalGrab(int newOwner)
     {
-        isTakingAuthority = true;
-        await Object.WaitForStateAuthority();
-        isTakingAuthority = false;
-        OwnerID = newOwner;
+        if (Object.HasStateAuthority)
+        {
+            OwnerID = newOwner;
+        }
+        else
+        {
+            isTakingAuthority = true;
+            await Object.WaitForStateAuthority();
+            isTakingAuthority = false;
+            OwnerID = newOwner;
+        }
     }
 
     public void LocalUngrab()

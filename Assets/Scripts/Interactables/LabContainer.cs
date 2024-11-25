@@ -49,10 +49,12 @@ public class LabContainer : MonoBehaviour
     [SerializeField] private Renderer rend;
     [SerializeField] private int outlineMaterialIndex = 1;
     public bool isSingleDropper;
-    public bool isPouring = false;
+    private bool isPouring = false;
     private I_PourEffect pourEffect;
 
+    [HideInInspector]
     public UnityEvent<PourData> PourEvent;
+    [HideInInspector]
     public UnityEvent<AbsorbData> AbsorbEvent;
     //more outline effect
     private Material outlineMaterial;
@@ -124,6 +126,7 @@ public class LabContainer : MonoBehaviour
     private IEnumerator SmoothFill(float startFill, float endFill, float speed)
     {
         float time = 0;
+        isPouring = true;
         while (time < 0.5)
         {
             time += Time.deltaTime * speed;
@@ -147,7 +150,9 @@ public class LabContainer : MonoBehaviour
 
     public void LocalFillChange(float startFill, float endFill)
     {
-        StartCoroutine(SmoothFill(startFill, endFill, pourSpeed));
+        if(!isPouring){
+            StartCoroutine(SmoothFill(startFill, endFill, pourSpeed));
+        }
     }
     private void SetOutlineAlpha(float alpha)
     {

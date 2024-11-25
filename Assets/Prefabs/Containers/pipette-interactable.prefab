@@ -319,6 +319,12 @@ MonoBehaviour:
   rend: {fileID: 2865833050479208691}
   outlineMaterialIndex: 2
   isSingleDropper: 1
+  PourEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  AbsorbEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &9043084333003329725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2b6a2117485c745b39d80f24425524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkTransform: {fileID: 1688690935075488592}
+  _networkTransform: {fileID: 1688690935075488592}
   _OwnerID: -1
   labInteractable: {fileID: 8290594148477327377}
 --- !u!1 &5508364205085590073

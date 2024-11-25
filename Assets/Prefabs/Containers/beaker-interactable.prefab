@@ -148,10 +148,10 @@ GameObject:
   - component: {fileID: 2964234156748321492}
   - component: {fileID: 7851543644551874411}
   - component: {fileID: 887099064716695585}
+  - component: {fileID: 8175494082535094817}
   - component: {fileID: 639363493756021677}
   - component: {fileID: 7090113969874150584}
   - component: {fileID: 2873461308013733963}
-  - component: {fileID: 8175494082535094817}
   m_Layer: 6
   m_Name: beaker-interactable
   m_TagString: LiquidInteractable
@@ -250,7 +250,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 1
+  m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
@@ -449,6 +449,12 @@ MonoBehaviour:
   rend: {fileID: 304263441217758753}
   outlineMaterialIndex: 1
   isSingleDropper: 0
+  PourEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  AbsorbEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7851543644551874411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +481,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pourOrigin: {fileID: 4922693512489900287}
+--- !u!114 &8175494082535094817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685327767534666518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3d5e40e4b218b4e99db78d055663f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkLabInteractable: {fileID: 2873461308013733963}
+  labContainer: {fileID: 2964234156748321492}
+  currentOwnerID: -1
 --- !u!114 &639363493756021677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,21 +543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2b6a2117485c745b39d80f24425524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkTransform: {fileID: 7090113969874150584}
+  _networkTransform: {fileID: 7090113969874150584}
   _OwnerID: -1
   labInteractable: {fileID: 8175494082535094817}
---- !u!114 &8175494082535094817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7685327767534666518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3d5e40e4b218b4e99db78d055663f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  networkLabInteractable: {fileID: 2873461308013733963}
-  labContainer: {fileID: 2964234156748321492}
-  currentOwnerID: -1
