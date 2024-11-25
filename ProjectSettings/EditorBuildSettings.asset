@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 9edee6650b365a5459c9664ebafda3e3
@@ -15,4 +12,6 @@ EditorBuildSettings:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 716c87378b0c2b945a8ec7fa10caf046,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 260956498805460478db2a9275a145f3,
+      type: 2}
+    io.coherence.simulator.build.options: {fileID: 11400000, guid: 341dcbd6c8668414f8b5e78603cfe46d,
       type: 2}

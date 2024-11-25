@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 public class Player : MonoBehaviour
 {
-    public int ID = 1;
     [SerializeField] private InputActionProperty pourAction;
     [Header("Interaction Settings")]
     [SerializeField] private Transform interactController;
@@ -49,7 +48,8 @@ public class Player : MonoBehaviour
                 : heldContainer.pd.isPouring && pourTimer <= 0;
 
             if(shouldPour){
-                heldContainer.PourLiquid(container);
+                heldContainer.TryPour();
+                container.TryAbsorb(heldContainer.pourRate);
                 if(!heldContainer.isSingleDropper){
                     pourTimer = pourCooldown;
                 }
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 
     public void SelectInteract(SelectEnterEventArgs args){
         if(heldContainer == null){
-            heldContainer = args.interactableObject.transform.GetComponent<LabInteractable>()?.SelectInteractable(ID);
+            heldContainer = args.interactableObject.transform.GetComponent<LabContainer>()?.SelectLabContainer();
             if(heldContainer.isSingleDropper){
                 heldContainer.InitializePourEffect(singleFlow);
             }
@@ -80,7 +80,6 @@ public class Player : MonoBehaviour
                 targetContainer = null;
             }
             heldContainer = null;
-            args.interactableObject.transform.GetComponent<LabInteractable>()?.DeselectInteractable();
         }
     }
 
