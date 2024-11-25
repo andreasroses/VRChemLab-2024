@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -16,82 +12,121 @@ public class Player : MonoBehaviour
     [Header("Flow References")]
     [SerializeField] private ParticleSystem singleFlow;
     [SerializeField] private LineRenderer regularFlow;
-    
+
     private float pourTimer = 0f;
     private LabContainer heldContainer;
     private LabContainer targetContainer;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(pourTimer > 0){
+        if (pourTimer > 0)
+        {
             pourTimer -= Time.deltaTime;
         }
 
         LabContainer container;
-        if(heldContainer == null){
+        if (heldContainer == null)
+        {
             return;
         }
-        if(checkForContainer(out container)){
-            if(targetContainer != container){
-                targetContainer?.HideOutline();
+        if (checkForContainer(out container))
+        {
+            if (targetContainer != container)
+            {
+                targetContainer?.HideHighlight();
                 targetContainer = container;
-                targetContainer.HighlightOutline();
+                targetContainer.ShowHighlight();
             }
 
             bool shouldPour = heldContainer.isSingleDropper
                 ? pourAction.action.WasPressedThisFrame()
                 : heldContainer.pd.isPouring && pourTimer <= 0;
 
-            if(shouldPour){
+            if (shouldPour)
+            {
                 heldContainer.TryPour();
                 container.TryAbsorb(heldContainer.pourRate);
-                if(!heldContainer.isSingleDropper){
+                if (!heldContainer.isSingleDropper)
+                {
                     pourTimer = pourCooldown;
                 }
             }
         }
-        else if(targetContainer != null){
-            targetContainer.HideOutline();
+        else if (targetContainer != null)
+        {
+            targetContainer.HideHighlight();
         }
-        
+
     }
 
-    public void SelectInteract(SelectEnterEventArgs args){
-        if(heldContainer == null){
+    public void SelectInteract(SelectEnterEventArgs args)
+    {
+        if (heldContainer == null)
+        {
             heldContainer = args.interactableObject.transform.GetComponent<LabContainer>()?.SelectLabContainer();
-            if(heldContainer.isSingleDropper){
+            if (heldContainer.isSingleDropper)
+            {
                 heldContainer.InitializePourEffect(singleFlow);
             }
-            else{
+            else
+            {
                 heldContainer.InitializePourEffect(regularFlow);
             }
         }
     }
 
-    public void Deselect(SelectExitEventArgs args){
-        if(heldContainer != null){
-            if(targetContainer != null){
-                targetContainer.HideOutline();
+    public void Deselect(SelectExitEventArgs args)
+    {
+        if (heldContainer != null)
+        {
+            if (targetContainer != null)
+            {
+                targetContainer.HideHighlight();
                 targetContainer = null;
             }
             heldContainer = null;
         }
     }
 
-    private bool checkForContainer(out LabContainer foundContainer){
+    private bool checkForContainer(out LabContainer foundContainer)
+    {
         foundContainer = null;
         Collider[] hitColliders = Physics.OverlapSphere(interactController.position, interactRadius, containersLayer);
-        foreach(Collider c in hitColliders){
-            if(c.gameObject != heldContainer.gameObject){
-                foundContainer = c.gameObject.GetComponent<LabContainer>();
-                return true;
+
+        float closestDistance = float.MaxValue;
+        LabContainer closestContainer = null;
+
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            Collider c = hitColliders[i];
+
+            if (c.gameObject == heldContainer.gameObject)
+                continue;
+
+            LabContainer container = c.GetComponent<LabContainer>();
+            if (container != null)
+            {
+                float distance = Vector3.Distance(interactController.position, c.transform.position);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestContainer = container;
+                }
             }
         }
+
+        if (closestContainer != null)
+        {
+            foundContainer = closestContainer;
+            return true;
+        }
+
         return false;
     }
 }

@@ -16,34 +16,38 @@ namespace Coherence.Generated
     using System.Runtime.InteropServices;
     using UnityEngine;
 
-    public struct _af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034 : IEntityCommand
+    public struct _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825 : IEntityCommand
     {
         [StructLayout(LayoutKind.Explicit)]
         public struct Interop
         {
             [FieldOffset(0)]
-            public System.Single addFill;
+            public System.Single startFill;
+            [FieldOffset(4)]
+            public System.Single endFill;
         }
 
-        public static unsafe _af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034 FromInterop(System.IntPtr data, System.Int32 dataSize) 
+        public static unsafe _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825 FromInterop(System.IntPtr data, System.Int32 dataSize) 
         {
-            if (dataSize != 4) {
-                throw new System.Exception($"Given data size is not equal to the struct size. ({dataSize} != 4) " +
-                    "for command with ID 16");
+            if (dataSize != 8) {
+                throw new System.Exception($"Given data size is not equal to the struct size. ({dataSize} != 8) " +
+                    "for command with ID 7");
             }
 
-            var orig = new _af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034();
+            var orig = new _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825();
             var comp = (Interop*)data;
-            orig.addFill = comp->addFill;
+            orig.startFill = comp->startFill;
+            orig.endFill = comp->endFill;
             return orig;
         }
 
-        public System.Single addFill;
+        public System.Single startFill;
+        public System.Single endFill;
         
         public Entity Entity { get; set; }
         public MessageTarget Routing { get; set; }
         public uint Sender { get; set; }
-        public uint GetComponentType() => 16;
+        public uint GetComponentType() => 7;
         
         public IEntityMessage Clone()
         {
@@ -81,32 +85,37 @@ namespace Coherence.Generated
         public void NullEntityRefs(Entity entity) {
         }
         
-        public _af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034(
+        public _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825(
         Entity entity,
-        System.Single addFill
+        System.Single startFill,
+        System.Single endFill
 )
         {
             Entity = entity;
             Routing = MessageTarget.All;
             Sender = 0;
             
-            this.addFill = addFill; 
+            this.startFill = startFill; 
+            this.endFill = endFill; 
         }
         
-        public static void Serialize(_af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034 commandData, IOutProtocolBitStream bitStream)
+        public static void Serialize(_6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825 commandData, IOutProtocolBitStream bitStream)
         {
-            bitStream.WriteFloat(commandData.addFill, FloatMeta.NoCompression());
+            bitStream.WriteFloat(commandData.startFill, FloatMeta.NoCompression());
+            bitStream.WriteFloat(commandData.endFill, FloatMeta.NoCompression());
         }
         
-        public static _af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034 Deserialize(IInProtocolBitStream bitStream, Entity entity, MessageTarget target)
+        public static _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825 Deserialize(IInProtocolBitStream bitStream, Entity entity, MessageTarget target)
         {
-            var dataaddFill = bitStream.ReadFloat(FloatMeta.NoCompression());
+            var datastartFill = bitStream.ReadFloat(FloatMeta.NoCompression());
+            var dataendFill = bitStream.ReadFloat(FloatMeta.NoCompression());
     
-            return new _af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034()
+            return new _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825()
             {
                 Entity = entity,
                 Routing = target,
-                addFill = dataaddFill
+                startFill = datastartFill,
+                endFill = dataendFill
             };   
         }
     }

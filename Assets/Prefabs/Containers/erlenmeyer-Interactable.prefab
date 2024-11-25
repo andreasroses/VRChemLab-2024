@@ -201,8 +201,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 81b3b2e8af948cb4f96c5fc72a627376, type: 2}
   - {fileID: 2100000, guid: 62dad06c47d1d1a448901a67f077f0b6, type: 2}
-  - {fileID: 2100000, guid: 57cb0cd9e13cf174c8988126304d4a5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   effect: {fileID: 6022247109729466505}
   pd: {fileID: 7137595488525142714}
   rend: {fileID: 7977661532143375022}
-  outlineMaterialIndex: 1
+  highlightMaterialIndex: 0
   isSingleDropper: 0
 --- !u!114 &7137595488525142714
 MonoBehaviour:
@@ -546,7 +546,7 @@ MonoBehaviour:
       lodStepsActive: 1
     GeneratesArchetypeDefinition: 0
   interpolationLocation: 1
-  RigidbodyUpdateMode: 0
+  RigidbodyUpdateMode: 1
   OnRigidbody2DPositionUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -574,9 +574,10 @@ MonoBehaviour:
   - rid: 2186520174720712787
   - rid: 2186520174720712791
   - rid: 2186520178578948107
-  - rid: 2186520178578948114
   - rid: 2186520178578948121
   - rid: 2186520178578948137
+  - rid: 2186520181995208706
+  - rid: 2186520182489874540
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -592,7 +593,6 @@ MonoBehaviour:
   usingReflection: 0
   coherenceTag: 
   componentActions:
-  - rid: 2186520174720712815
   - rid: 2186520174720712817
   - rid: 2186520174720712818
   floatingOriginMode: 0
@@ -696,11 +696,6 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 2186520174720712815
-      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
-        asm: Coherence.Toolkit}
-      data:
-        component: {fileID: 0}
     - rid: 2186520174720712817
       type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
         asm: Coherence.Toolkit}
@@ -735,48 +730,6 @@ MonoBehaviour:
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: AbsorbLiquid
-        monoAssemblyType: 
-        required: 1
-        enforcesLODingWhenFieldsOverriden: 0
-        valueSyncCallbackName: 
-        memberType: 8
-        parameterAssemblyTypes:
-        - System.Single, mscorlib
-        ownerType:
-          assemblyQualifiedName: LabContainer, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        defaultSyncMode: 0
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
-    - rid: 2186520178578948114
-      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 2186520178578948115
-        routing: 1
-        syncMode: 0
-        isPredicted: 0
-        predictionMode: 0
-        guid: 3616399a950f4a888788d23d92a33809
-        archetypeData:
-          type: 0
-          minRange: 0
-          maxRange: 0
-          sampleRate: 0
-          floatCompression: 0
-          fields: []
-        unityComponent: {fileID: 5362255851807355750}
-        coherenceSync: {fileID: 832959758534034304}
-        interpolationSettings: {fileID: 0}
-    - rid: 2186520178578948115
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: SetOutlineAlpha
         monoAssemblyType: 
         required: 1
         enforcesLODingWhenFieldsOverriden: 0
@@ -879,5 +832,90 @@ MonoBehaviour:
         bindingType:
           assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.BoolBinding,
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 2186520181995208706
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2186520181995208707
+        routing: 1
+        syncMode: 0
+        isPredicted: 0
+        predictionMode: 0
+        guid: dcce483a152f479183e6034c9703d6ce
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 5362255851807355750}
+        coherenceSync: {fileID: 832959758534034304}
+        interpolationSettings: {fileID: 0}
+    - rid: 2186520181995208707
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: LocalFillChange
+        monoAssemblyType: 
+        required: 1
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes:
+        - System.Single, mscorlib
+        - System.Single, mscorlib
+        ownerType:
+          assemblyQualifiedName: LabContainer, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        defaultSyncMode: 0
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 2186520182489874540
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2186520182489874541
+        routing: 1
+        syncMode: 0
+        isPredicted: 0
+        predictionMode: 0
+        guid: 95d2a71360b24ec29081f873c126b8cf
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 5362255851807355750}
+        coherenceSync: {fileID: 832959758534034304}
+        interpolationSettings: {fileID: 0}
+    - rid: 2186520182489874541
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: SetHighlightAlpha
+        monoAssemblyType: 
+        required: 1
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes:
+        - System.Int32, mscorlib
+        ownerType:
+          assemblyQualifiedName: LabContainer, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        defaultSyncMode: 0
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []

@@ -188,8 +188,9 @@ namespace Coherence.Generated
         private Logger logger = Coherence.Log.Log.GetLogger<CoherenceSync_6d71f34c2fab2e4439db9e8ff84f1018>();
         
         private global::LabContainer _6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e_CommandTarget;
-        private global::LabContainer _6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4_CommandTarget;
         private global::LabContainer _6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685_CommandTarget;
+        private global::LabContainer _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825_CommandTarget;
+        private global::LabContainer _6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0_CommandTarget;
         
         
         private IClient client;
@@ -207,8 +208,9 @@ namespace Coherence.Generated
         public CoherenceSync_6d71f34c2fab2e4439db9e8ff84f1018()
         {
             bakedCommandBindings.Add("66301979c5234c2a987c361c4faf709e", BakeCommandBinding__6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e);
-            bakedCommandBindings.Add("cf8b6b2bd62b4829a5d016d57196bbf4", BakeCommandBinding__6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4);
             bakedCommandBindings.Add("7b2fc24ef31b45898cac636b70a2a685", BakeCommandBinding__6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685);
+            bakedCommandBindings.Add("5ed750db24b7447fb6fd800c756b7825", BakeCommandBinding__6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825);
+            bakedCommandBindings.Add("60e7ad10c5454398bdbfae40ceccfaf0", BakeCommandBinding__6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0);
         }
         
         public override Binding BakeValueBinding(Binding valueBinding)
@@ -263,39 +265,6 @@ namespace Coherence.Generated
             target.AbsorbLiquid((System.Single)(command.addFill));
         }
     
-        private void BakeCommandBinding__6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4(CommandBinding commandBinding, CommandsHandler commandsHandler)
-        {
-            _6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4_CommandTarget = (global::LabContainer)commandBinding.UnityComponent;
-            commandsHandler.AddBakedCommand("LabContainer.SetOutlineAlpha", "(System.Single)", SendCommand__6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4, ReceiveLocalCommand__6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4, MessageTarget.All, _6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4_CommandTarget, false);
-        }
-        
-        private void SendCommand__6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4(MessageTarget target, object[] args)
-        {
-            var command = new _6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4();
-            
-            int i = 0;
-            command.alpha = (System.Single)args[i++];
-        
-            client.SendCommand(command, target, entityId);
-        }
-        
-        private void ReceiveLocalCommand__6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4(MessageTarget target, object[] args)
-        {
-            var command = new _6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4();
-            
-            int i = 0;
-            command.alpha = (System.Single)args[i++];
-            
-            ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4(command);
-        }
-
-        private void ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4(_6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4 command)
-        {
-            var target = _6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4_CommandTarget;
-            
-            target.SetOutlineAlpha((System.Single)(command.alpha));
-        }
-    
         private void BakeCommandBinding__6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685(CommandBinding commandBinding, CommandsHandler commandsHandler)
         {
             _6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685_CommandTarget = (global::LabContainer)commandBinding.UnityComponent;
@@ -324,6 +293,74 @@ namespace Coherence.Generated
             
             target.PourLiquid();
         }
+    
+        private void BakeCommandBinding__6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825(CommandBinding commandBinding, CommandsHandler commandsHandler)
+        {
+            _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825_CommandTarget = (global::LabContainer)commandBinding.UnityComponent;
+            commandsHandler.AddBakedCommand("LabContainer.LocalFillChange", "(System.SingleSystem.Single)", SendCommand__6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825, ReceiveLocalCommand__6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825, MessageTarget.All, _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825_CommandTarget, false);
+        }
+        
+        private void SendCommand__6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825(MessageTarget target, object[] args)
+        {
+            var command = new _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825();
+            
+            int i = 0;
+            command.startFill = (System.Single)args[i++];
+            command.endFill = (System.Single)args[i++];
+        
+            client.SendCommand(command, target, entityId);
+        }
+        
+        private void ReceiveLocalCommand__6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825(MessageTarget target, object[] args)
+        {
+            var command = new _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825();
+            
+            int i = 0;
+            command.startFill = (System.Single)args[i++];
+            command.endFill = (System.Single)args[i++];
+            
+            ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825(command);
+        }
+
+        private void ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825(_6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825 command)
+        {
+            var target = _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825_CommandTarget;
+            
+            target.LocalFillChange((System.Single)(command.startFill),(System.Single)(command.endFill));
+        }
+    
+        private void BakeCommandBinding__6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0(CommandBinding commandBinding, CommandsHandler commandsHandler)
+        {
+            _6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0_CommandTarget = (global::LabContainer)commandBinding.UnityComponent;
+            commandsHandler.AddBakedCommand("LabContainer.SetHighlightAlpha", "(System.Int32)", SendCommand__6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0, ReceiveLocalCommand__6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0, MessageTarget.All, _6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0_CommandTarget, false);
+        }
+        
+        private void SendCommand__6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0(MessageTarget target, object[] args)
+        {
+            var command = new _6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0();
+            
+            int i = 0;
+            command.alpha = (System.Int32)args[i++];
+        
+            client.SendCommand(command, target, entityId);
+        }
+        
+        private void ReceiveLocalCommand__6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0(MessageTarget target, object[] args)
+        {
+            var command = new _6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0();
+            
+            int i = 0;
+            command.alpha = (System.Int32)args[i++];
+            
+            ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0(command);
+        }
+
+        private void ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0(_6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0 command)
+        {
+            var target = _6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0_CommandTarget;
+            
+            target.SetHighlightAlpha((System.Int32)(command.alpha));
+        }
         
         public override void ReceiveCommand(IEntityCommand command)
         {
@@ -332,11 +369,14 @@ namespace Coherence.Generated
                 case _6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e castedCommand:
                     ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e(castedCommand);
                     break;
-                case _6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4 castedCommand:
-                    ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4(castedCommand);
-                    break;
                 case _6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685 castedCommand:
                     ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685(castedCommand);
+                    break;
+                case _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825 castedCommand:
+                    ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825(castedCommand);
+                    break;
+                case _6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0 castedCommand:
+                    ReceiveCommand__6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0(castedCommand);
                     break;
                 default:
                     logger.Warning($"CoherenceSync_6d71f34c2fab2e4439db9e8ff84f1018 Unhandled command: {command.GetType()}.");

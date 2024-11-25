@@ -20,7 +20,7 @@ namespace Coherence.Generated
 
     public class Definition : IDefinition
     {
-        public const string schemaId = "23e4692af7766a5384bb4bb139263bbe96fade07";
+        public const string schemaId = "edae2a9c299fba7209d5a5450e45f2e5ae1d5650";
         public const uint InternalWorldPosition = 0;
         public const uint InternalWorldOrientation = 1;
         public const uint InternalLocalUserComponent = 2;
@@ -174,14 +174,16 @@ namespace Coherence.Generated
         public const uint InternalGenericFieldULong3 = 150;
         public const uint InternalGenericFieldColor0 = 151;
         public const uint InternalGenericFieldColor1 = 152;
-        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_1784774650460060972 = 153;
-        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_4339992973885546247 = 154;
-        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_7318400997866443689 = 155;
-        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_8178940138649331564 = 156;
-        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_8303579749327279811 = 157;
-        public const uint Internal_6d71f34c2fab2e4439db9e8ff84f1018_6402872736654015195 = 158;
-        public const uint Internal_89f0b9a4444bdac43a58673a772b1440_3981479094327917996 = 159;
-        public const uint Internal_af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678 = 160;
+        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_1778728379703199811 = 153;
+        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_1784774650460060972 = 154;
+        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_2000181485725708302 = 155;
+        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_2456403841789217788 = 156;
+        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_8178940138649331564 = 157;
+        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_8303579749327279811 = 158;
+        public const uint Internal_360648f3c22c9fb41a4ac920b8269f70_976679110228619647 = 159;
+        public const uint Internal_6d71f34c2fab2e4439db9e8ff84f1018_6402872736654015195 = 160;
+        public const uint Internal_89f0b9a4444bdac43a58673a772b1440_3981479094327917996 = 161;
+        public const uint Internal_af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678 = 162;
         public const uint InternalAuthorityRequest = 0;
         public const uint InternalAuthorityTransfer = 1;
         public const uint InternalQuerySynced = 2;
@@ -189,15 +191,18 @@ namespace Coherence.Generated
         public const uint InternalPersistenceReady = 4;
         public const uint InternalSceneIndexChanged = 5;
         public const uint InternalGenericCommand = 6;
-        public const uint Internal_6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e = 7;
-        public const uint Internal_6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685 = 8;
-        public const uint Internal_6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4 = 9;
-        public const uint Internal_89f0b9a4444bdac43a58673a772b1440_577e2e15601a4ed4a9b5dd9793d3808d = 10;
-        public const uint Internal_89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45 = 11;
-        public const uint Internal_89f0b9a4444bdac43a58673a772b1440_a5095b69922c4a87aeeb0c9bd71a479f = 12;
-        public const uint Internal_af0a75a35d1d548449d2d6cdf107e1ad_15a1f847f1464bf2a3f0373bd04eadc7 = 13;
-        public const uint Internal_af0a75a35d1d548449d2d6cdf107e1ad_3616399a950f4a888788d23d92a33809 = 14;
-        public const uint Internal_af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034 = 15;
+        public const uint Internal_6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825 = 7;
+        public const uint Internal_6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0 = 8;
+        public const uint Internal_6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e = 9;
+        public const uint Internal_6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685 = 10;
+        public const uint Internal_89f0b9a4444bdac43a58673a772b1440_3d4ce41069784d68b4d0b166dd98ffc6 = 11;
+        public const uint Internal_89f0b9a4444bdac43a58673a772b1440_577e2e15601a4ed4a9b5dd9793d3808d = 12;
+        public const uint Internal_89f0b9a4444bdac43a58673a772b1440_a5095b69922c4a87aeeb0c9bd71a479f = 13;
+        public const uint Internal_89f0b9a4444bdac43a58673a772b1440_b8b234f3424b420db4570a8fbd062db5 = 14;
+        public const uint Internal_af0a75a35d1d548449d2d6cdf107e1ad_15a1f847f1464bf2a3f0373bd04eadc7 = 15;
+        public const uint Internal_af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034 = 16;
+        public const uint Internal_af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf = 17;
+        public const uint Internal_af0a75a35d1d548449d2d6cdf107e1ad_dcce483a152f479183e6034c9703d6ce = 18;
 
         private static readonly Dictionary<uint, string> componentNamesForTypeIds = new Dictionary<uint, string>()
         {
@@ -354,14 +359,16 @@ namespace Coherence.Generated
             { 150, "GenericFieldULong3" },
             { 151, "GenericFieldColor0" },
             { 152, "GenericFieldColor1" },
-            { 153, "_360648f3c22c9fb41a4ac920b8269f70_1784774650460060972" },
-            { 154, "_360648f3c22c9fb41a4ac920b8269f70_4339992973885546247" },
-            { 155, "_360648f3c22c9fb41a4ac920b8269f70_7318400997866443689" },
-            { 156, "_360648f3c22c9fb41a4ac920b8269f70_8178940138649331564" },
-            { 157, "_360648f3c22c9fb41a4ac920b8269f70_8303579749327279811" },
-            { 158, "_6d71f34c2fab2e4439db9e8ff84f1018_6402872736654015195" },
-            { 159, "_89f0b9a4444bdac43a58673a772b1440_3981479094327917996" },
-            { 160, "_af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678" },
+            { 153, "_360648f3c22c9fb41a4ac920b8269f70_1778728379703199811" },
+            { 154, "_360648f3c22c9fb41a4ac920b8269f70_1784774650460060972" },
+            { 155, "_360648f3c22c9fb41a4ac920b8269f70_2000181485725708302" },
+            { 156, "_360648f3c22c9fb41a4ac920b8269f70_2456403841789217788" },
+            { 157, "_360648f3c22c9fb41a4ac920b8269f70_8178940138649331564" },
+            { 158, "_360648f3c22c9fb41a4ac920b8269f70_8303579749327279811" },
+            { 159, "_360648f3c22c9fb41a4ac920b8269f70_976679110228619647" },
+            { 160, "_6d71f34c2fab2e4439db9e8ff84f1018_6402872736654015195" },
+            { 161, "_89f0b9a4444bdac43a58673a772b1440_3981479094327917996" },
+            { 162, "_af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678" },
         };
 
         public static string ComponentNameForTypeId(uint typeId)
@@ -385,15 +392,18 @@ namespace Coherence.Generated
             { Definition.InternalPersistenceReady , MessageTarget.All },
             { Definition.InternalSceneIndexChanged , MessageTarget.All },
             { Definition.InternalGenericCommand , MessageTarget.All },
+            { Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825 , MessageTarget.All },
+            { Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0 , MessageTarget.All },
             { Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e , MessageTarget.All },
             { Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685 , MessageTarget.All },
-            { Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4 , MessageTarget.All },
+            { Definition.Internal_89f0b9a4444bdac43a58673a772b1440_3d4ce41069784d68b4d0b166dd98ffc6 , MessageTarget.All },
             { Definition.Internal_89f0b9a4444bdac43a58673a772b1440_577e2e15601a4ed4a9b5dd9793d3808d , MessageTarget.All },
-            { Definition.Internal_89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45 , MessageTarget.All },
             { Definition.Internal_89f0b9a4444bdac43a58673a772b1440_a5095b69922c4a87aeeb0c9bd71a479f , MessageTarget.All },
+            { Definition.Internal_89f0b9a4444bdac43a58673a772b1440_b8b234f3424b420db4570a8fbd062db5 , MessageTarget.All },
             { Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_15a1f847f1464bf2a3f0373bd04eadc7 , MessageTarget.All },
-            { Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_3616399a950f4a888788d23d92a33809 , MessageTarget.All },
             { Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034 , MessageTarget.All },
+            { Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf , MessageTarget.All },
+            { Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_dcce483a152f479183e6034c9703d6ce , MessageTarget.All },
         };
 
         public ICoherenceComponentData ReadComponentUpdate(uint componentType, AbsoluteSimulationFrame referenceSimulationFrame,
@@ -709,16 +719,20 @@ namespace Coherence.Generated
                     return GenericFieldColor0.Deserialize(referenceSimulationFrame, inProtocolStream);
                 case InternalGenericFieldColor1:
                     return GenericFieldColor1.Deserialize(referenceSimulationFrame, inProtocolStream);
+                case Internal_360648f3c22c9fb41a4ac920b8269f70_1778728379703199811:
+                    return _360648f3c22c9fb41a4ac920b8269f70_1778728379703199811.Deserialize(referenceSimulationFrame, inProtocolStream);
                 case Internal_360648f3c22c9fb41a4ac920b8269f70_1784774650460060972:
                     return _360648f3c22c9fb41a4ac920b8269f70_1784774650460060972.Deserialize(referenceSimulationFrame, inProtocolStream);
-                case Internal_360648f3c22c9fb41a4ac920b8269f70_4339992973885546247:
-                    return _360648f3c22c9fb41a4ac920b8269f70_4339992973885546247.Deserialize(referenceSimulationFrame, inProtocolStream);
-                case Internal_360648f3c22c9fb41a4ac920b8269f70_7318400997866443689:
-                    return _360648f3c22c9fb41a4ac920b8269f70_7318400997866443689.Deserialize(referenceSimulationFrame, inProtocolStream);
+                case Internal_360648f3c22c9fb41a4ac920b8269f70_2000181485725708302:
+                    return _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302.Deserialize(referenceSimulationFrame, inProtocolStream);
+                case Internal_360648f3c22c9fb41a4ac920b8269f70_2456403841789217788:
+                    return _360648f3c22c9fb41a4ac920b8269f70_2456403841789217788.Deserialize(referenceSimulationFrame, inProtocolStream);
                 case Internal_360648f3c22c9fb41a4ac920b8269f70_8178940138649331564:
                     return _360648f3c22c9fb41a4ac920b8269f70_8178940138649331564.Deserialize(referenceSimulationFrame, inProtocolStream);
                 case Internal_360648f3c22c9fb41a4ac920b8269f70_8303579749327279811:
                     return _360648f3c22c9fb41a4ac920b8269f70_8303579749327279811.Deserialize(referenceSimulationFrame, inProtocolStream);
+                case Internal_360648f3c22c9fb41a4ac920b8269f70_976679110228619647:
+                    return _360648f3c22c9fb41a4ac920b8269f70_976679110228619647.Deserialize(referenceSimulationFrame, inProtocolStream);
                 case Internal_6d71f34c2fab2e4439db9e8ff84f1018_6402872736654015195:
                     return _6d71f34c2fab2e4439db9e8ff84f1018_6402872736654015195.Deserialize(referenceSimulationFrame, inProtocolStream);
                 case Internal_89f0b9a4444bdac43a58673a772b1440_3981479094327917996:
@@ -1042,16 +1056,20 @@ namespace Coherence.Generated
                     return GenericFieldColor0.Serialize((GenericFieldColor0)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
                 case InternalGenericFieldColor1:
                     return GenericFieldColor1.Serialize((GenericFieldColor1)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
+                case Internal_360648f3c22c9fb41a4ac920b8269f70_1778728379703199811:
+                    return _360648f3c22c9fb41a4ac920b8269f70_1778728379703199811.Serialize((_360648f3c22c9fb41a4ac920b8269f70_1778728379703199811)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
                 case Internal_360648f3c22c9fb41a4ac920b8269f70_1784774650460060972:
                     return _360648f3c22c9fb41a4ac920b8269f70_1784774650460060972.Serialize((_360648f3c22c9fb41a4ac920b8269f70_1784774650460060972)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
-                case Internal_360648f3c22c9fb41a4ac920b8269f70_4339992973885546247:
-                    return _360648f3c22c9fb41a4ac920b8269f70_4339992973885546247.Serialize((_360648f3c22c9fb41a4ac920b8269f70_4339992973885546247)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
-                case Internal_360648f3c22c9fb41a4ac920b8269f70_7318400997866443689:
-                    return _360648f3c22c9fb41a4ac920b8269f70_7318400997866443689.Serialize((_360648f3c22c9fb41a4ac920b8269f70_7318400997866443689)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
+                case Internal_360648f3c22c9fb41a4ac920b8269f70_2000181485725708302:
+                    return _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302.Serialize((_360648f3c22c9fb41a4ac920b8269f70_2000181485725708302)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
+                case Internal_360648f3c22c9fb41a4ac920b8269f70_2456403841789217788:
+                    return _360648f3c22c9fb41a4ac920b8269f70_2456403841789217788.Serialize((_360648f3c22c9fb41a4ac920b8269f70_2456403841789217788)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
                 case Internal_360648f3c22c9fb41a4ac920b8269f70_8178940138649331564:
                     return _360648f3c22c9fb41a4ac920b8269f70_8178940138649331564.Serialize((_360648f3c22c9fb41a4ac920b8269f70_8178940138649331564)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
                 case Internal_360648f3c22c9fb41a4ac920b8269f70_8303579749327279811:
                     return _360648f3c22c9fb41a4ac920b8269f70_8303579749327279811.Serialize((_360648f3c22c9fb41a4ac920b8269f70_8303579749327279811)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
+                case Internal_360648f3c22c9fb41a4ac920b8269f70_976679110228619647:
+                    return _360648f3c22c9fb41a4ac920b8269f70_976679110228619647.Serialize((_360648f3c22c9fb41a4ac920b8269f70_976679110228619647)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
                 case Internal_6d71f34c2fab2e4439db9e8ff84f1018_6402872736654015195:
                     return _6d71f34c2fab2e4439db9e8ff84f1018_6402872736654015195.Serialize((_6d71f34c2fab2e4439db9e8ff84f1018_6402872736654015195)data, isRefSimFrameValid, referenceSimulationFrame, protocolStream, logger);
                 case Internal_89f0b9a4444bdac43a58673a772b1440_3981479094327917996:
@@ -1082,24 +1100,30 @@ namespace Coherence.Generated
                     return SceneIndexChanged.Deserialize(bitStream, entity, target);
                 case Definition.InternalGenericCommand:
                     return GenericCommand.Deserialize(bitStream, entity, target);
+                case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825:
+                    return _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825.Deserialize(bitStream, entity, target);
+                case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0:
+                    return _6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0.Deserialize(bitStream, entity, target);
                 case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e:
                     return _6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e.Deserialize(bitStream, entity, target);
                 case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685:
                     return _6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685.Deserialize(bitStream, entity, target);
-                case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4:
-                    return _6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4.Deserialize(bitStream, entity, target);
+                case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_3d4ce41069784d68b4d0b166dd98ffc6:
+                    return _89f0b9a4444bdac43a58673a772b1440_3d4ce41069784d68b4d0b166dd98ffc6.Deserialize(bitStream, entity, target);
                 case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_577e2e15601a4ed4a9b5dd9793d3808d:
                     return _89f0b9a4444bdac43a58673a772b1440_577e2e15601a4ed4a9b5dd9793d3808d.Deserialize(bitStream, entity, target);
-                case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45:
-                    return _89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45.Deserialize(bitStream, entity, target);
                 case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_a5095b69922c4a87aeeb0c9bd71a479f:
                     return _89f0b9a4444bdac43a58673a772b1440_a5095b69922c4a87aeeb0c9bd71a479f.Deserialize(bitStream, entity, target);
+                case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_b8b234f3424b420db4570a8fbd062db5:
+                    return _89f0b9a4444bdac43a58673a772b1440_b8b234f3424b420db4570a8fbd062db5.Deserialize(bitStream, entity, target);
                 case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_15a1f847f1464bf2a3f0373bd04eadc7:
                     return _af0a75a35d1d548449d2d6cdf107e1ad_15a1f847f1464bf2a3f0373bd04eadc7.Deserialize(bitStream, entity, target);
-                case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_3616399a950f4a888788d23d92a33809:
-                    return _af0a75a35d1d548449d2d6cdf107e1ad_3616399a950f4a888788d23d92a33809.Deserialize(bitStream, entity, target);
                 case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034:
                     return _af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034.Deserialize(bitStream, entity, target);
+                case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf:
+                    return _af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf.Deserialize(bitStream, entity, target);
+                case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_dcce483a152f479183e6034c9703d6ce:
+                    return _af0a75a35d1d548449d2d6cdf107e1ad_dcce483a152f479183e6034c9703d6ce.Deserialize(bitStream, entity, target);
                 default:
                     throw new System.ArgumentOutOfRangeException(nameof(commandType),
                         $"Missing serialization implementation for a command: {commandType}");
@@ -1190,32 +1214,41 @@ namespace Coherence.Generated
                 case Definition.InternalGenericCommand:
                     GenericCommand.Serialize((GenericCommand)data, bitStream);
                     break;
+                case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825:
+                    _6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825.Serialize((_6d71f34c2fab2e4439db9e8ff84f1018_5ed750db24b7447fb6fd800c756b7825)data, bitStream);
+                    break;
+                case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0:
+                    _6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0.Serialize((_6d71f34c2fab2e4439db9e8ff84f1018_60e7ad10c5454398bdbfae40ceccfaf0)data, bitStream);
+                    break;
                 case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e:
                     _6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e.Serialize((_6d71f34c2fab2e4439db9e8ff84f1018_66301979c5234c2a987c361c4faf709e)data, bitStream);
                     break;
                 case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685:
                     _6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685.Serialize((_6d71f34c2fab2e4439db9e8ff84f1018_7b2fc24ef31b45898cac636b70a2a685)data, bitStream);
                     break;
-                case Definition.Internal_6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4:
-                    _6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4.Serialize((_6d71f34c2fab2e4439db9e8ff84f1018_cf8b6b2bd62b4829a5d016d57196bbf4)data, bitStream);
+                case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_3d4ce41069784d68b4d0b166dd98ffc6:
+                    _89f0b9a4444bdac43a58673a772b1440_3d4ce41069784d68b4d0b166dd98ffc6.Serialize((_89f0b9a4444bdac43a58673a772b1440_3d4ce41069784d68b4d0b166dd98ffc6)data, bitStream);
                     break;
                 case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_577e2e15601a4ed4a9b5dd9793d3808d:
                     _89f0b9a4444bdac43a58673a772b1440_577e2e15601a4ed4a9b5dd9793d3808d.Serialize((_89f0b9a4444bdac43a58673a772b1440_577e2e15601a4ed4a9b5dd9793d3808d)data, bitStream);
                     break;
-                case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45:
-                    _89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45.Serialize((_89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45)data, bitStream);
-                    break;
                 case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_a5095b69922c4a87aeeb0c9bd71a479f:
                     _89f0b9a4444bdac43a58673a772b1440_a5095b69922c4a87aeeb0c9bd71a479f.Serialize((_89f0b9a4444bdac43a58673a772b1440_a5095b69922c4a87aeeb0c9bd71a479f)data, bitStream);
+                    break;
+                case Definition.Internal_89f0b9a4444bdac43a58673a772b1440_b8b234f3424b420db4570a8fbd062db5:
+                    _89f0b9a4444bdac43a58673a772b1440_b8b234f3424b420db4570a8fbd062db5.Serialize((_89f0b9a4444bdac43a58673a772b1440_b8b234f3424b420db4570a8fbd062db5)data, bitStream);
                     break;
                 case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_15a1f847f1464bf2a3f0373bd04eadc7:
                     _af0a75a35d1d548449d2d6cdf107e1ad_15a1f847f1464bf2a3f0373bd04eadc7.Serialize((_af0a75a35d1d548449d2d6cdf107e1ad_15a1f847f1464bf2a3f0373bd04eadc7)data, bitStream);
                     break;
-                case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_3616399a950f4a888788d23d92a33809:
-                    _af0a75a35d1d548449d2d6cdf107e1ad_3616399a950f4a888788d23d92a33809.Serialize((_af0a75a35d1d548449d2d6cdf107e1ad_3616399a950f4a888788d23d92a33809)data, bitStream);
-                    break;
                 case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034:
                     _af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034.Serialize((_af0a75a35d1d548449d2d6cdf107e1ad_8ed97fdbb76f4c56b7a74a337f0c1034)data, bitStream);
+                    break;
+                case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf:
+                    _af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf.Serialize((_af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf)data, bitStream);
+                    break;
+                case Definition.Internal_af0a75a35d1d548449d2d6cdf107e1ad_dcce483a152f479183e6034c9703d6ce:
+                    _af0a75a35d1d548449d2d6cdf107e1ad_dcce483a152f479183e6034c9703d6ce.Serialize((_af0a75a35d1d548449d2d6cdf107e1ad_dcce483a152f479183e6034c9703d6ce)data, bitStream);
                     break;
                 default:
                     logger.Error("Missing serialization implementation for a command.", ("command", commandType));

@@ -20,59 +20,68 @@ namespace Coherence.Generated
     using UnityEngine;
     using Coherence.Toolkit;
 
-    public struct _af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678 : ICoherenceComponentData
+    public struct _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302 : ICoherenceComponentData
     {
         [StructLayout(LayoutKind.Explicit)]
         public struct Interop
         {
             [FieldOffset(0)]
-            public System.Byte isGrabbed;
+            public Vector3 position;
         }
 
         public void ResetFrame(AbsoluteSimulationFrame frame)
         {
-            FieldsMask |= _af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678.isGrabbedMask;
-            isGrabbedSimulationFrame = frame;
+            FieldsMask |= _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302.positionMask;
+            positionSimulationFrame = frame;
         }
 
-        public static unsafe _af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678 FromInterop(IntPtr data, Int32 dataSize, InteropAbsoluteSimulationFrame* simFrames, Int32 simFramesCount)
+        public static unsafe _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302 FromInterop(IntPtr data, Int32 dataSize, InteropAbsoluteSimulationFrame* simFrames, Int32 simFramesCount)
         {
-            if (dataSize != 1) {
-                throw new Exception($"Given data size is not equal to the struct size. ({dataSize} != 1) " +
-                    "for component with ID 162");
+            if (dataSize != 12) {
+                throw new Exception($"Given data size is not equal to the struct size. ({dataSize} != 12) " +
+                    "for component with ID 155");
             }
 
-            if (simFramesCount != 0) {
-                throw new Exception($"Given simFrames size is not equal to the expected length. ({simFramesCount} != 0) " +
-                    "for component with ID 162");
+            if (simFramesCount != 1) {
+                throw new Exception($"Given simFrames size is not equal to the expected length. ({simFramesCount} != 1) " +
+                    "for component with ID 155");
             }
 
-            var orig = new _af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678();
+            var orig = new _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302();
 
             var comp = (Interop*)data;
 
-            orig.isGrabbed = comp->isGrabbed != 0;
+            orig.position = comp->position;
+            orig.positionSimulationFrame = simFrames[0].Into();
 
             return orig;
         }
 
 
-        public static uint isGrabbedMask => 0b00000000000000000000000000000001;
-        public AbsoluteSimulationFrame isGrabbedSimulationFrame;
-        public System.Boolean isGrabbed;
+        public static uint positionMask => 0b00000000000000000000000000000001;
+        public AbsoluteSimulationFrame positionSimulationFrame;
+        public Vector3 position;
 
         public uint FieldsMask { get; set; }
         public uint StoppedMask { get; set; }
-        public uint GetComponentType() => 162;
+        public uint GetComponentType() => 155;
         public int PriorityLevel() => 100;
         public const int order = 0;
         public uint InitialFieldsMask() => 0b00000000000000000000000000000001;
         public bool HasFields() => true;
         public bool HasRefFields() => false;
 
+        private long[] simulationFrames;
 
         public long[] GetSimulationFrames() {
-            return null;
+            if (simulationFrames == null)
+            {
+                simulationFrames = new long[1];
+            }
+
+            simulationFrames[0] = positionSimulationFrame;
+
+            return simulationFrames;
         }
 
         public int GetFieldCount() => 1;
@@ -108,13 +117,17 @@ namespace Coherence.Generated
         {
             AbsoluteSimulationFrame? min = null;
 
+            if ((FieldsMask & _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302.positionMask) != 0 && (min == null || this.positionSimulationFrame < min))
+            {
+                min = this.positionSimulationFrame;
+            }
 
             return min;
         }
 
         public ICoherenceComponentData MergeWith(ICoherenceComponentData data)
         {
-            var other = (_af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678)data;
+            var other = (_360648f3c22c9fb41a4ac920b8269f70_2000181485725708302)data;
             var otherMask = other.FieldsMask;
 
             FieldsMask |= otherMask;
@@ -122,8 +135,8 @@ namespace Coherence.Generated
 
             if ((otherMask & 0x01) != 0)
             {
-                this.isGrabbedSimulationFrame = other.isGrabbedSimulationFrame;
-                this.isGrabbed = other.isGrabbed;
+                this.positionSimulationFrame = other.positionSimulationFrame;
+                this.position = other.position;
             }
 
             otherMask >>= 1;
@@ -137,7 +150,7 @@ namespace Coherence.Generated
             throw new System.NotSupportedException($"{nameof(DiffWith)} is not supported in Unity");
         }
 
-        public static uint Serialize(_af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678 data, bool isRefSimFrameValid, AbsoluteSimulationFrame referenceSimulationFrame, IOutProtocolBitStream bitStream, Logger logger)
+        public static uint Serialize(_360648f3c22c9fb41a4ac920b8269f70_2000181485725708302 data, bool isRefSimFrameValid, AbsoluteSimulationFrame referenceSimulationFrame, IOutProtocolBitStream bitStream, Logger logger)
         {
             if (bitStream.WriteMask(data.StoppedMask != 0))
             {
@@ -148,13 +161,23 @@ namespace Coherence.Generated
 
             if (bitStream.WriteMask((mask & 0x01) != 0))
             {
+                if (isRefSimFrameValid) {
+                    var simFrameDelta = data.positionSimulationFrame - referenceSimulationFrame;
+                    if (simFrameDelta > byte.MaxValue) {
+                        simFrameDelta = byte.MaxValue;
+                    }
+
+                    SerializeTools.WriteFieldSimFrameDelta(bitStream, (byte)simFrameDelta);
+                } else {
+                    SerializeTools.WriteFieldSimFrameDelta(bitStream, 0);
+                }
 
 
-                var fieldValue = data.isGrabbed;
+                var fieldValue = (data.position.ToCoreVector3());
 
 
 
-                bitStream.WriteBool(fieldValue);
+                bitStream.WriteVector3(fieldValue, FloatMeta.NoCompression());
             }
 
             mask >>= 1;
@@ -162,7 +185,7 @@ namespace Coherence.Generated
             return mask;
         }
 
-        public static _af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678 Deserialize(AbsoluteSimulationFrame referenceSimulationFrame, InProtocolBitStream bitStream)
+        public static _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302 Deserialize(AbsoluteSimulationFrame referenceSimulationFrame, InProtocolBitStream bitStream)
         {
             var stoppedMask = (uint)0;
             if (bitStream.ReadMask())
@@ -170,12 +193,13 @@ namespace Coherence.Generated
                 stoppedMask = bitStream.ReadMaskBits(1);
             }
 
-            var val = new _af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678();
+            var val = new _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302();
             if (bitStream.ReadMask())
             {
+                val.positionSimulationFrame = referenceSimulationFrame + DeserializerTools.ReadFieldSimFrameDelta(bitStream);
 
-                val.isGrabbed = bitStream.ReadBool();
-                val.FieldsMask |= _af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678.isGrabbedMask;
+                val.position = bitStream.ReadVector3(FloatMeta.NoCompression()).ToUnityVector3();
+                val.FieldsMask |= _360648f3c22c9fb41a4ac920b8269f70_2000181485725708302.positionMask;
             }
 
             val.StoppedMask = stoppedMask;
@@ -186,8 +210,9 @@ namespace Coherence.Generated
 
         public override string ToString()
         {
-            return $"_af0a75a35d1d548449d2d6cdf107e1ad_8190433028052924678(" +
-                $" isGrabbed: { this.isGrabbed }" +
+            return $"_360648f3c22c9fb41a4ac920b8269f70_2000181485725708302(" +
+                $" position: { this.position }" +
+                $", positionSimFrame: { this.positionSimulationFrame }" +
                 $" Mask: { System.Convert.ToString(FieldsMask, 2).PadLeft(1, '0') }, " +
                 $"Stopped: { System.Convert.ToString(StoppedMask, 2).PadLeft(1, '0') })";
         }

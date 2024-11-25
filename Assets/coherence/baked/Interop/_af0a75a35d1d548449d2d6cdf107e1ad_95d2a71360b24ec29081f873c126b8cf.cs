@@ -16,34 +16,34 @@ namespace Coherence.Generated
     using System.Runtime.InteropServices;
     using UnityEngine;
 
-    public struct _89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45 : IEntityCommand
+    public struct _af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf : IEntityCommand
     {
         [StructLayout(LayoutKind.Explicit)]
         public struct Interop
         {
             [FieldOffset(0)]
-            public System.Single alpha;
+            public System.Int32 alpha;
         }
 
-        public static unsafe _89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45 FromInterop(System.IntPtr data, System.Int32 dataSize) 
+        public static unsafe _af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf FromInterop(System.IntPtr data, System.Int32 dataSize) 
         {
             if (dataSize != 4) {
                 throw new System.Exception($"Given data size is not equal to the struct size. ({dataSize} != 4) " +
-                    "for command with ID 11");
+                    "for command with ID 17");
             }
 
-            var orig = new _89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45();
+            var orig = new _af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf();
             var comp = (Interop*)data;
             orig.alpha = comp->alpha;
             return orig;
         }
 
-        public System.Single alpha;
+        public System.Int32 alpha;
         
         public Entity Entity { get; set; }
         public MessageTarget Routing { get; set; }
         public uint Sender { get; set; }
-        public uint GetComponentType() => 11;
+        public uint GetComponentType() => 17;
         
         public IEntityMessage Clone()
         {
@@ -81,9 +81,9 @@ namespace Coherence.Generated
         public void NullEntityRefs(Entity entity) {
         }
         
-        public _89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45(
+        public _af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf(
         Entity entity,
-        System.Single alpha
+        System.Int32 alpha
 )
         {
             Entity = entity;
@@ -93,16 +93,16 @@ namespace Coherence.Generated
             this.alpha = alpha; 
         }
         
-        public static void Serialize(_89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45 commandData, IOutProtocolBitStream bitStream)
+        public static void Serialize(_af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf commandData, IOutProtocolBitStream bitStream)
         {
-            bitStream.WriteFloat(commandData.alpha, FloatMeta.NoCompression());
+            bitStream.WriteIntegerRange(commandData.alpha, 32, -2147483648);
         }
         
-        public static _89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45 Deserialize(IInProtocolBitStream bitStream, Entity entity, MessageTarget target)
+        public static _af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf Deserialize(IInProtocolBitStream bitStream, Entity entity, MessageTarget target)
         {
-            var dataalpha = bitStream.ReadFloat(FloatMeta.NoCompression());
+            var dataalpha = bitStream.ReadIntegerRange(32, -2147483648);
     
-            return new _89f0b9a4444bdac43a58673a772b1440_81c8d5a2b96d46518c778610a245fd45()
+            return new _af0a75a35d1d548449d2d6cdf107e1ad_95d2a71360b24ec29081f873c126b8cf()
             {
                 Entity = entity,
                 Routing = target,

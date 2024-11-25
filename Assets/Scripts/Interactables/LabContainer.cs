@@ -24,21 +24,22 @@ public class LabContainer : MonoBehaviour
     [SerializeField] protected Component effect;
     [SerializeField] public PourDetector pd;
 
-    [Header("OutlineEffect")]
+    [Header("HighlightEffect")]
     [SerializeField] private Renderer rend;
-    [SerializeField] private int outlineMaterialIndex = 1;
+    [SerializeField] private int highlightMaterialIndex = 1;
     public bool isSingleDropper;
     private bool isPouring = false;
     private I_PourEffect pourEffect;
 
-    //more outline effect
-    private Material outlineMaterial;
-    private Color outlineColor;
+    //more highlight effect
+    private Material highlightMaterial;
+    private Color highlightColor;
     void Start()
     {
         pourEffect = (I_PourEffect)effect;
-        outlineMaterial = rend.materials[outlineMaterialIndex];
-        outlineColor = outlineMaterial.GetColor("_OutlineColor");
+        
+        highlightMaterial = rend.materials[highlightMaterialIndex];
+        highlightColor = highlightMaterial.GetColor("_BaseColor");
     }
 
     void Update()
@@ -93,11 +94,12 @@ public class LabContainer : MonoBehaviour
         float currFill = liquidRend.material.GetFloat("_fill");
         if (currFill >= -1 + pourRate)
         {
-            isPouring = true;
-            
             pourEffect.DisplayPour();
-            LocalFillChange(currFill, currFill - pourRate);
-            sync.SendCommand<LabContainer>(nameof(LocalFillChange), MessageTarget.Other, currFill, currFill - pourRate);
+
+            float endFill = currFill - pourRate;
+            LocalFillChange(currFill, endFill);
+            
+            sync.SendCommand<LabContainer>(nameof(LocalFillChange), MessageTarget.Other, currFill, endFill);
         }
     }
     [Command]
@@ -107,10 +109,9 @@ public class LabContainer : MonoBehaviour
         float currFill = liquidRend.material.GetFloat("_fill");
         if (currFill < 1 - pourRate)
         {
-            isPouring = true;
-            
-            LocalFillChange(currFill, currFill + addFill);
-            sync.SendCommand<LabContainer>(nameof(LocalFillChange), MessageTarget.Other, currFill, currFill + addFill);
+            float endFill = currFill + addFill;
+            LocalFillChange(currFill, endFill);
+            sync.SendCommand<LabContainer>(nameof(LocalFillChange), MessageTarget.Other, currFill, endFill);
         }
     }
 
@@ -131,14 +132,18 @@ public class LabContainer : MonoBehaviour
         while (time < 0.5)
         {
             time += Time.deltaTime * speed;
+            
             float newFill = Mathf.Lerp(startFill, endFill, time);
             liquidRend.material.SetFloat("_fill", newFill);
             yield return null;
         }
+        
         liquidRend.material.SetFloat("_fill", endFill);
+        
         isPouring = false;
     }
 
+    [Command]
     public void LocalFillChange(float startFill, float endFill)
     {
         if(!isPouring){
@@ -150,22 +155,25 @@ public class LabContainer : MonoBehaviour
 
     #region Target Visuals
 
-    public void HighlightOutline()
+    public void ShowHighlight()
     {
-        SetOutlineAlpha(1);
-        sync.SendCommand<LabContainer>(nameof(SetOutlineAlpha), MessageTarget.Other, 1);
+        SetHighlightAlpha(1);
+        sync.SendCommand<LabContainer>(nameof(SetHighlightAlpha), MessageTarget.Other, 1);
     }
 
-    public void HideOutline()
+    public void HideHighlight()
     {
-        SetOutlineAlpha(0);
-        sync.SendCommand<LabContainer>(nameof(SetOutlineAlpha), MessageTarget.Other, 0);
+        SetHighlightAlpha(0);
+        sync.SendCommand<LabContainer>(nameof(SetHighlightAlpha), MessageTarget.Other, 0);
     }
 
     [Command]
-    public void SetOutlineAlpha(float alpha)
+    public void SetHighlightAlpha(int alpha)
     {
-        outlineMaterial.SetColor("_OutlineColor", new Color(outlineColor.r, outlineColor.g, outlineColor.b, alpha));
+        Color newColor = highlightColor;
+        newColor.a = alpha;
+        
+        highlightMaterial.SetColor("_BaseColor", newColor);
     }
     #endregion
     

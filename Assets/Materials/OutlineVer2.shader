@@ -14,7 +14,6 @@ Shader "URP/OutlineVer2"
         Blend SrcAlpha OneMinusSrcAlpha
         Cull Off
         ZWrite Off
-
         Pass
         {
             Name "Outline"
