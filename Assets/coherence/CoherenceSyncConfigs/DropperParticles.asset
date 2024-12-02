@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579f4a509fd2f994fa391c0c78ea3f11, type: 3}
+  m_Name: DropperParticles
+  m_EditorClassIdentifier: 
+  id: 2cc11f7011ea6284fbc47d6ea7ee0239
+  selfId: acc0278dc81055540a0dd92f8d113707
+  editorTarget: {fileID: 3843017027827860842, guid: 2cc11f7011ea6284fbc47d6ea7ee0239,
+    type: 3}
+  includeInSchema: 1
+  objectProvider:
+    rid: 2186520311256842244
+  objectInstantiator:
+    rid: 2186520311256842245
+  references:
+    version: 2
+    RefIds:
+    - rid: 2186520311256842244
+      type: {class: DirectReferenceProvider, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+      data:
+        prefab: {fileID: 3843017027827860842, guid: 2cc11f7011ea6284fbc47d6ea7ee0239,
+          type: 3}
+    - rid: 2186520311256842245
+      type: {class: DefaultInstantiator, ns: Coherence.Toolkit, asm: Coherence.Toolkit}
+      data: 

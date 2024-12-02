@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1202936799265858908}
   - component: {fileID: 3981479094327917996}
   - component: {fileID: 7658485219368065503}
-  - component: {fileID: 9043084333003329725}
   - component: {fileID: 468638570972321701}
   m_Layer: 6
   m_Name: pipette-interactable
@@ -314,24 +313,11 @@ MonoBehaviour:
   pourRate: 0.01
   pourSpeed: 1
   absorbSpeed: 1
-  effect: {fileID: 9043084333003329725}
+  pourOrigin: {fileID: 7736677674010575013}
   pd: {fileID: 0}
   rend: {fileID: 2865833050479208691}
-  outlineMaterialIndex: 2
+  highlightMaterialIndex: 1
   isSingleDropper: 1
---- !u!114 &9043084333003329725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4379055237479827750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76e1c7f81342f445864a20d80a65af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pourOrigin: {fileID: 7736677674010575013}
 --- !u!114 &468638570972321701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,8 +372,6 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 7658485219368065503}
       lodStepsActive: 1
-    - component: {fileID: 9043084333003329725}
-      lodStepsActive: 1
     - component: {fileID: 2633097164452500970}
       lodStepsActive: 1
     - component: {fileID: 6617770761007513976}
@@ -401,8 +385,8 @@ MonoBehaviour:
     - component: {fileID: 3981479094327917996}
       lodStepsActive: 1
     GeneratesArchetypeDefinition: 0
-  interpolationLocation: 1
-  RigidbodyUpdateMode: 0
+  interpolationLocation: 5
+  RigidbodyUpdateMode: 1
   OnRigidbody2DPositionUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -471,7 +455,7 @@ MonoBehaviour:
           type: 7
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 7
@@ -480,7 +464,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 4003232935531303836}
         coherenceSync: {fileID: 468638570972321701}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520174720712769
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
@@ -518,7 +502,7 @@ MonoBehaviour:
           type: 8
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 8
@@ -527,7 +511,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 4003232935531303836}
         coherenceSync: {fileID: 468638570972321701}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520174720712773
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
@@ -647,7 +631,7 @@ MonoBehaviour:
           type: 3
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 3

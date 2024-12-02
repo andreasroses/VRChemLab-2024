@@ -9,9 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float interactRadius;
     [SerializeField] private LayerMask containersLayer;
     [SerializeField] private float pourCooldown = 0.4f;
-    [Header("Flow References")]
-    [SerializeField] private ParticleSystem singleFlow;
-    [SerializeField] private LineRenderer regularFlow;
 
     private float pourTimer = 0f;
     private LabContainer heldContainer;
@@ -69,14 +66,6 @@ public class Player : MonoBehaviour
         if (heldContainer == null)
         {
             heldContainer = args.interactableObject.transform.GetComponent<LabContainer>()?.SelectLabContainer();
-            if (heldContainer.isSingleDropper)
-            {
-                heldContainer.InitializePourEffect(singleFlow);
-            }
-            else
-            {
-                heldContainer.InitializePourEffect(regularFlow);
-            }
         }
     }
 

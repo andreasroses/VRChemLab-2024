@@ -444,6 +444,7 @@ MonoBehaviour:
   pourRate: 0.015
   pourSpeed: 0.5
   absorbSpeed: 0.5
+  pourOrigin: {fileID: 4922693512489900287}
   effect: {fileID: 887099064716695585}
   pd: {fileID: 7851543644551874411}
   rend: {fileID: 304263441217758753}
@@ -546,8 +547,8 @@ MonoBehaviour:
     - component: {fileID: 6402872736654015195}
       lodStepsActive: 1
     GeneratesArchetypeDefinition: 0
-  interpolationLocation: 1
-  RigidbodyUpdateMode: 0
+  interpolationLocation: 5
+  RigidbodyUpdateMode: 1
   OnRigidbody2DPositionUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -616,7 +617,7 @@ MonoBehaviour:
           type: 7
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 7
@@ -625,7 +626,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 4814977609526663186}
         coherenceSync: {fileID: 8548703974871879332}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520174720712733
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
@@ -663,7 +664,7 @@ MonoBehaviour:
           type: 8
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 8
@@ -672,7 +673,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 4814977609526663186}
         coherenceSync: {fileID: 8548703974871879332}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520174720712737
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}

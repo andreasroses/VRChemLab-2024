@@ -4,14 +4,16 @@ using UnityEngine;
 using Coherence;
 using Coherence.Connection;
 using Coherence.Toolkit;
-public class NetworkHand : MonoBehaviour
+public class NetworkHide : MonoBehaviour
 {
     [SerializeField] CoherenceSync sync;
-    [SerializeField] MeshRenderer mesh;
+    [SerializeField] MeshRenderer[] meshes;
     void Start()
     {
         if(sync.HasStateAuthority){
-            mesh.enabled = false;
+            foreach(MeshRenderer m in meshes){
+                m.enabled = false;
+            }
         }
     }
 }

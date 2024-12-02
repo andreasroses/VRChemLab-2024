@@ -9,17 +9,8 @@ public class RegularFlowEffect : MonoBehaviour, I_PourEffect
     private float animSpeed = 1.75f;
     private Vector3 targetPosition;
     private Coroutine pourRoutine = null;
-    public void Initialize<T>(T component)
-    {
-        if(component is UnityEngine.LineRenderer line){
-            flowLine = line;
-        }
-        else{
-            Debug.LogError($"Invalid component type : {typeof(T)}. Expected LineRenderer.");
-        }
-    }
     
-    public void DisplayPour()
+    public void DisplayPour(Vector3 pourOrigin)
     {
         //flowLine.gameObject.SetActive(true);
         //pourRoutine = StartCoroutine(BeginPour());
@@ -80,5 +71,10 @@ public class RegularFlowEffect : MonoBehaviour, I_PourEffect
     private bool hasReachedPosition(int index, Vector3 targetPos){
         Vector3 currPos = flowLine.GetPosition(index);
         return currPos == targetPos;
+    }
+
+    public void PrefetchAuthority()
+    {
+        
     }
 }

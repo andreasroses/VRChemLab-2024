@@ -1,28 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SingleFlowEffect : MonoBehaviour, I_PourEffect
+using Coherence;
+using Coherence.Connection;
+using Coherence.Toolkit;
+public class SingleFlowEffect : MonoBehaviour
 {
-    [SerializeField] private Transform pourOrigin;
-    private ParticleSystem flowParticles;
-    public void Initialize<T>(T component){
-        if(component is ParticleSystem particles){
-            flowParticles = particles;
-        }
-        else{
-            Debug.LogError($"Invalid component type : {typeof(T)}. Expected ParticleSystem.");
-        }
-    }
+    [SerializeField] private CoherenceSync sync;
+    [SerializeField] private ParticleSystem flowParticles;
 
-    public void DisplayPour(){
-        flowParticles.gameObject.SetActive(true);
-        flowParticles.transform.position = pourOrigin.position;
-        flowParticles.transform.SetParent(pourOrigin);
+    [Command]
+    public void DisplayPour(Vector3 pourOrigin){
+        transform.position = pourOrigin;
         flowParticles.Play();
-    }
-
-    public void EndPour(){
-        flowParticles.gameObject.SetActive(false);
+        if(!sync.HasStateAuthority){
+            sync.SendCommand<SingleFlowEffect>(nameof(DisplayPour), MessageTarget.AuthorityOnly, pourOrigin);
+        }
+        
     }
 }

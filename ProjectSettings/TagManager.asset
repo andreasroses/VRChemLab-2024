@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - LiquidInteractable
+  - DropperParticles
   layers:
   - Default
   - TransparentFX

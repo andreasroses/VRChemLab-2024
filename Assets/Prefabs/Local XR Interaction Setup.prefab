@@ -1,38 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &71620713608536662
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5992926572924377528}
-  m_Layer: 2
-  m_Name: Particles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5992926572924377528
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71620713608536662}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.36144, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1784774650460060972}
-  - {fileID: 8178940138649331564}
-  m_Father: {fileID: 976679110228619647}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &898798812280000935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,18 +1899,6 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 6564417623576230293}
       lodStepsActive: 1
-    - component: {fileID: 5992926572924377528}
-      lodStepsActive: 1
-    - component: {fileID: 1784774650460060972}
-      lodStepsActive: 1
-    - component: {fileID: 4799855296467771888}
-      lodStepsActive: 1
-    - component: {fileID: 8178940138649331564}
-      lodStepsActive: 1
-    - component: {fileID: 8472145246016397469}
-      lodStepsActive: 1
-    - component: {fileID: 2245680320917037201}
-      lodStepsActive: 1
     - component: {fileID: 4339992973885546247}
       lodStepsActive: 1
     - component: {fileID: 631892947032472857}
@@ -2164,6 +2119,8 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 4755420848314542148}
       lodStepsActive: 1
+    - component: {fileID: 8168202030889054162}
+      lodStepsActive: 1
     GeneratesArchetypeDefinition: 0
   interpolationLocation: 1
   RigidbodyUpdateMode: 0
@@ -2195,16 +2152,16 @@ MonoBehaviour:
   - rid: 2186520174720712710
   - rid: 2186520174720712712
   - rid: 2186520174720712714
-  - rid: 2186520178578948096
-  - rid: 2186520178578948098
-  - rid: 2186520178578948100
-  - rid: 2186520178578948101
   - rid: 2186520182489874432
   - rid: 2186520182489874434
   - rid: 2186520182489874441
   - rid: 2186520182489874443
   - rid: 2186520182489874470
   - rid: 2186520182489874472
+  - rid: 2186520286698143761
+  - rid: 2186520286698143763
+  - rid: 2186520286698143765
+  - rid: 2186520286698143766
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -2241,7 +2198,6 @@ MonoBehaviour:
   - rid: 2186520174720712755
   - rid: 2186520174720712756
   - rid: 2186520174720712757
-  - rid: 2186520174720712758
   - rid: 2186520174720712759
   - rid: 2186520174720712761
   - rid: 2186520174720712762
@@ -2265,6 +2221,8 @@ MonoBehaviour:
   - rid: 2186520182489874455
   - rid: 2186520182489874456
   - rid: 2186520182489874457
+  - rid: 3095298997414789176
+  - rid: 3095298997414789177
   floatingOriginMode: 0
   floatingOriginParentedMode: 1
   references:
@@ -2287,7 +2245,7 @@ MonoBehaviour:
           type: 7
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 7
@@ -2334,7 +2292,7 @@ MonoBehaviour:
           type: 8
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 8
@@ -2381,7 +2339,7 @@ MonoBehaviour:
           type: 7
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 7
@@ -2390,7 +2348,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 8303579749327279811}
         coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520174720712713
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
@@ -2428,7 +2386,7 @@ MonoBehaviour:
           type: 8
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 8
@@ -2437,7 +2395,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 8303579749327279811}
         coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520174720712715
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
@@ -2565,11 +2523,6 @@ MonoBehaviour:
         asm: Coherence.Toolkit}
       data:
         component: {fileID: 8192843841546553114}
-    - rid: 2186520174720712758
-      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
-        asm: Coherence.Toolkit}
-      data:
-        component: {fileID: 7586573853279165167}
     - rid: 2186520174720712759
       type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
         asm: Coherence.Toolkit}
@@ -2595,152 +2548,6 @@ MonoBehaviour:
         asm: Coherence.Toolkit}
       data:
         component: {fileID: 7124198510675874953}
-    - rid: 2186520178578948096
-      type: {class: DeepPositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
-        asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 2186520178578948097
-        routing: 0
-        syncMode: 0
-        isPredicted: 0
-        predictionMode: 0
-        guid: 5d7d5008852a493db77bab1832b4b584
-        archetypeData:
-          type: 7
-          minRange: 0
-          maxRange: 0
-          sampleRate: 20
-          floatCompression: 0
-          fields:
-          - type: 7
-            bits: 32
-            precision: 0.001
-            floatCompression: 0
-        unityComponent: {fileID: 1784774650460060972}
-        coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
-          type: 2}
-    - rid: 2186520178578948097
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: position
-        monoAssemblyType: UnityEngine.Vector3, UnityEngine
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 1
-        valueSyncCallbackName: 
-        memberType: 64
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        defaultSyncMode: 0
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.TransformBindings.DeepPositionBinding,
-            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
-    - rid: 2186520178578948098
-      type: {class: DeepRotationBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
-        asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 2186520178578948099
-        routing: 0
-        syncMode: 0
-        isPredicted: 0
-        predictionMode: 0
-        guid: 678a81a06e6545349586219d91bdc881
-        archetypeData:
-          type: 8
-          minRange: 0
-          maxRange: 0
-          sampleRate: 20
-          floatCompression: 0
-          fields:
-          - type: 8
-            bits: 32
-            precision: 0.00000008381903171539307
-            floatCompression: 0
-        unityComponent: {fileID: 1784774650460060972}
-        coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
-          type: 2}
-    - rid: 2186520178578948099
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: rotation
-        monoAssemblyType: UnityEngine.Quaternion, UnityEngine
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 1
-        valueSyncCallbackName: 
-        memberType: 64
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        defaultSyncMode: 0
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.TransformBindings.DeepRotationBinding,
-            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
-    - rid: 2186520178578948100
-      type: {class: DeepPositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
-        asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 2186520178578948097
-        routing: 0
-        syncMode: 0
-        isPredicted: 0
-        predictionMode: 0
-        guid: 920c04581dc04c7181a6b89355edb74b
-        archetypeData:
-          type: 7
-          minRange: 0
-          maxRange: 0
-          sampleRate: 20
-          floatCompression: 0
-          fields:
-          - type: 7
-            bits: 32
-            precision: 0.001
-            floatCompression: 0
-        unityComponent: {fileID: 8178940138649331564}
-        coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
-          type: 2}
-    - rid: 2186520178578948101
-      type: {class: DeepRotationBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
-        asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 2186520178578948099
-        routing: 0
-        syncMode: 0
-        isPredicted: 0
-        predictionMode: 0
-        guid: 15823f0fe5fc4f8fb780273b58a5d52e
-        archetypeData:
-          type: 8
-          minRange: 0
-          maxRange: 0
-          sampleRate: 20
-          floatCompression: 0
-          fields:
-          - type: 8
-            bits: 32
-            precision: 0.00000008381903171539307
-            floatCompression: 0
-        unityComponent: {fileID: 8178940138649331564}
-        coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
-          type: 2}
     - rid: 2186520182489874432
       type: {class: DeepPositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
         asm: Coherence.Toolkit}
@@ -2756,7 +2563,7 @@ MonoBehaviour:
           type: 7
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 7
@@ -2765,7 +2572,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 976679110228619647}
         coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520182489874433
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
@@ -2803,7 +2610,7 @@ MonoBehaviour:
           type: 8
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 8
@@ -2812,7 +2619,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 976679110228619647}
         coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520182489874435
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
@@ -2875,7 +2682,7 @@ MonoBehaviour:
           type: 7
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 7
@@ -2884,7 +2691,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 1778728379703199811}
         coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520182489874442
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
@@ -2922,7 +2729,7 @@ MonoBehaviour:
           type: 7
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 7
@@ -2931,7 +2738,7 @@ MonoBehaviour:
             floatCompression: 0
         unityComponent: {fileID: 2000181485725708302}
         coherenceSync: {fileID: 7676262625631212090}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5,
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
           type: 2}
     - rid: 2186520182489874444
       type: {class: DisableRendererComponentAction, ns: Coherence.Toolkit.ComponentActions,
@@ -3013,7 +2820,7 @@ MonoBehaviour:
           type: 7
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 7
@@ -3060,7 +2867,7 @@ MonoBehaviour:
           type: 8
           minRange: 0
           maxRange: 0
-          sampleRate: 20
+          sampleRate: 30
           floatCompression: 0
           fields:
           - type: 8
@@ -3092,6 +2899,162 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+    - rid: 2186520286698143761
+      type: {class: DeepPositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
+        asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2186520286698143762
+        routing: 0
+        syncMode: 0
+        isPredicted: 0
+        predictionMode: 0
+        guid: 796e22af16874c5fa080773dd97d6e63
+        archetypeData:
+          type: 7
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 7
+            bits: 32
+            precision: 0.001
+            floatCompression: 0
+        unityComponent: {fileID: 4339992973885546247}
+        coherenceSync: {fileID: 7676262625631212090}
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
+          type: 2}
+    - rid: 2186520286698143762
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: position
+        monoAssemblyType: UnityEngine.Vector3, UnityEngine
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 64
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        defaultSyncMode: 0
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.TransformBindings.DeepPositionBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 2186520286698143763
+      type: {class: DeepRotationBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
+        asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2186520286698143764
+        routing: 0
+        syncMode: 0
+        isPredicted: 0
+        predictionMode: 0
+        guid: e4705875e08c4c0e8a6b3bf47700fc7f
+        archetypeData:
+          type: 8
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 8
+            bits: 32
+            precision: 0.00000008381903171539307
+            floatCompression: 0
+        unityComponent: {fileID: 4339992973885546247}
+        coherenceSync: {fileID: 7676262625631212090}
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
+          type: 2}
+    - rid: 2186520286698143764
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: rotation
+        monoAssemblyType: UnityEngine.Quaternion, UnityEngine
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 64
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        defaultSyncMode: 0
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.TransformBindings.DeepRotationBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 2186520286698143765
+      type: {class: DeepPositionBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
+        asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2186520286698143762
+        routing: 0
+        syncMode: 0
+        isPredicted: 0
+        predictionMode: 0
+        guid: d071c6c8aabe4c7a9d52f7f34fb4f181
+        archetypeData:
+          type: 7
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 7
+            bits: 32
+            precision: 0.001
+            floatCompression: 0
+        unityComponent: {fileID: 7318400997866443689}
+        coherenceSync: {fileID: 7676262625631212090}
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
+          type: 2}
+    - rid: 2186520286698143766
+      type: {class: DeepRotationBinding, ns: Coherence.Toolkit.Bindings.TransformBindings,
+        asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 2186520286698143764
+        routing: 0
+        syncMode: 0
+        isPredicted: 0
+        predictionMode: 0
+        guid: 9f5e27a1147d45e895f061e2c24332db
+        archetypeData:
+          type: 8
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 8
+            bits: 32
+            precision: 0.00000008381903171539307
+            floatCompression: 0
+        unityComponent: {fileID: 7318400997866443689}
+        coherenceSync: {fileID: 7676262625631212090}
+        interpolationSettings: {fileID: 11400000, guid: 5b51506c5ed13654282beb3dd19b5181,
+          type: 2}
+    - rid: 3095298997414789176
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 7586573853279165167}
+    - rid: 3095298997414789177
+      type: {class: DisableBehaviourComponentAction, ns: Coherence.Toolkit.ComponentActions,
+        asm: Coherence.Toolkit}
+      data:
+        component: {fileID: 747768873732360085}
 --- !u!1 &1337337632180289216
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,7 +3246,7 @@ Transform:
   m_GameObject: {fileID: 2490294070889958853}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.05}
+  m_LocalPosition: {x: 0, y: 0.036, z: -0.05}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3352,7 +3315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sync: {fileID: 7676262625631212090}
-  mesh: {fileID: 6961558777237260141}
+  meshes:
+  - {fileID: 6961558777237260141}
 --- !u!1 &2980598911677239622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,6 +3328,7 @@ GameObject:
   - component: {fileID: 2456403841789217788}
   - component: {fileID: 1565350321009411161}
   - component: {fileID: 3629279642384314515}
+  - component: {fileID: 8168202030889054162}
   m_Layer: 0
   m_Name: Avatar
   m_TagString: Untagged
@@ -3380,7 +3345,7 @@ Transform:
   m_GameObject: {fileID: 2980598911677239622}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05499987, y: -0.5021399, z: -0.41500005}
+  m_LocalPosition: {x: 0.055, y: -0.5021399, z: -0.097}
   m_LocalScale: {x: 0.67368424, y: 0.805828, z: 0.60185415}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3438,6 +3403,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8168202030889054162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980598911677239622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e2f1ba9bef8f54486cf6620a529685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sync: {fileID: 7676262625631212090}
+  meshes:
+  - {fileID: 3629279642384314515}
+  - {fileID: 8033929926797517594}
+  - {fileID: 2779941803742319072}
 --- !u!1 &3160835288177704464
 GameObject:
   m_ObjectHideFlags: 0
@@ -4236,8 +4218,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   pourCooldown: 0.4
-  singleFlow: {fileID: 8472145246016397469}
-  regularFlow: {fileID: 4799855296467771888}
 --- !u!1 &5320846567489265390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4266,7 +4246,7 @@ Transform:
   m_GameObject: {fileID: 5320846567489265390}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.05}
+  m_LocalPosition: {x: 0, y: 0.036, z: -0.05}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4335,7 +4315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sync: {fileID: 7676262625631212090}
-  mesh: {fileID: 1957789983071684897}
+  meshes:
+  - {fileID: 1957789983071684897}
 --- !u!1 &5505574543427718075
 GameObject:
   m_ObjectHideFlags: 0
@@ -4843,7 +4824,6 @@ Transform:
   m_Children:
   - {fileID: 2456403841789217788}
   - {fileID: 7124198510675874955}
-  - {fileID: 5992926572924377528}
   m_Father: {fileID: 3025240232472394899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7586573853279165167
@@ -5612,182 +5592,6 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 5821210241915783947, guid: 9f3369e30fbd31f4bb596b1a99babe83,
     type: 3}
   m_PrefabInstance: {fileID: 3168295339424619037}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &4726139920958900016
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5992926572924377528}
-    m_Modifications:
-    - target: {fileID: 219020250215179968, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0.002005239
-      objectReference: {fileID: 0}
-    - target: {fileID: 219020250215179968, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.008695405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5691318962823581806, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_Name
-      value: WaterfallEffect
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.013
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.376
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.331
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.49014613
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.49014613
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.50966346
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.50966346
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5ae638a7cb705d547ad584d39cb68dd6, type: 3}
---- !u!4 &1784774650460060972 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6436299320043469340, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4726139920958900016}
-  m_PrefabAsset: {fileID: 0}
---- !u!120 &4799855296467771888 stripped
-LineRenderer:
-  m_CorrespondingSourceObject: {fileID: 219020250215179968, guid: 5ae638a7cb705d547ad584d39cb68dd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4726139920958900016}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &5060354072894641612
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5992926572924377528}
-    m_Modifications:
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.405
-      objectReference: {fileID: 0}
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.267
-      objectReference: {fileID: 0}
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.49014613
-      objectReference: {fileID: 0}
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.49014613
-      objectReference: {fileID: 0}
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.50966346
-      objectReference: {fileID: 0}
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.50966346
-      objectReference: {fileID: 0}
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091834529079483079, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-        type: 3}
-      propertyPath: m_Name
-      value: DropperParticles
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ac80f21a76391d940ac5fa72cc9faa2f, type: 3}
---- !u!199 &2245680320917037201 stripped
-ParticleSystemRenderer:
-  m_CorrespondingSourceObject: {fileID: 6418684370547012957, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5060354072894641612}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8178940138649331564 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4015121310391120544, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5060354072894641612}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8472145246016397469 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3723040934662010193, guid: ac80f21a76391d940ac5fa72cc9faa2f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5060354072894641612}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7667566855218227116
 PrefabInstance:

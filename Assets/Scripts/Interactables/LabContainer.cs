@@ -21,7 +21,7 @@ public class LabContainer : MonoBehaviour
     [SerializeField] protected float absorbSpeed;
 
     [Header("Pour Effect")]
-    [SerializeField] protected Component effect;
+    [SerializeField] Transform pourOrigin;
     [SerializeField] public PourDetector pd;
 
     [Header("HighlightEffect")]
@@ -29,32 +29,19 @@ public class LabContainer : MonoBehaviour
     [SerializeField] private int highlightMaterialIndex = 1;
     public bool isSingleDropper;
     private bool isPouring = false;
-    private I_PourEffect pourEffect;
+    private SingleFlowEffect pourEffect;
 
     //more highlight effect
     private Material highlightMaterial;
     private Color highlightColor;
     void Start()
     {
-        pourEffect = (I_PourEffect)effect;
+        if(isSingleDropper){
+            pourEffect = GameObject.FindGameObjectWithTag("DropperParticles").GetComponent<SingleFlowEffect>();
+        }
         
         highlightMaterial = rend.materials[highlightMaterialIndex];
         highlightColor = highlightMaterial.GetColor("_BaseColor");
-    }
-
-    void Update()
-    {
-        if (!isSingleDropper)
-        {
-            if (pd.endPour || !isPouring)
-            {
-                StopPour();
-            }
-        }
-    }
-    public void InitializePourEffect<T>(T component)
-    {
-        pourEffect.Initialize(component);
     }
 
 
@@ -94,7 +81,9 @@ public class LabContainer : MonoBehaviour
         float currFill = liquidRend.material.GetFloat("_fill");
         if (currFill >= -1 + pourRate)
         {
-            pourEffect.DisplayPour();
+            if(isSingleDropper){
+                pourEffect.DisplayPour(pourOrigin.position);
+            }
 
             float endFill = currFill - pourRate;
             LocalFillChange(currFill, endFill);
@@ -122,7 +111,7 @@ public class LabContainer : MonoBehaviour
 
     public void StopPour()
     {
-        pourEffect.EndPour();
+        //pourEffect.EndPour();
     }
 
     private IEnumerator SmoothFill(float startFill, float endFill, float speed)

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public interface I_PourEffect
 {
-    void Initialize<T>(T component);
-    void DisplayPour();
+    void DisplayPour(Vector3 pourOrigin);
 
     void EndPour();
+
+    public void PrefetchAuthority();
 }
