@@ -11,11 +11,15 @@ public class SingleFlowEffect : MonoBehaviour
 
     [Command]
     public void DisplayPour(Vector3 pourOrigin){
-        transform.position = pourOrigin;
-        flowParticles.Play();
-        if(!sync.HasStateAuthority){
-            sync.SendCommand<SingleFlowEffect>(nameof(DisplayPour), MessageTarget.AuthorityOnly, pourOrigin);
+        if(sync.HasStateAuthority){
+            transform.position = pourOrigin;
+            sync.SendCommand<SingleFlowEffect>(nameof(DisplayPour), MessageTarget.Other, pourOrigin);
         }
         
+        flowParticles.Play();
+    }
+
+    public void PrefetchAuthority(){
+        sync.RequestAuthority(AuthorityType.Full);
     }
 }

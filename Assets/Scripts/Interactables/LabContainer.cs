@@ -47,6 +47,7 @@ public class LabContainer : MonoBehaviour
 
     #region Selection
     public LabContainer SelectLabContainer(){
+        PrepareEffect();
         return this;
     }
 
@@ -68,6 +69,12 @@ public class LabContainer : MonoBehaviour
         }
         else{
             sync.SendCommand<LabContainer>(nameof(AbsorbLiquid), MessageTarget.AuthorityOnly, addFill);
+        }
+    }
+
+    private void PrepareEffect(){
+        if(isSingleDropper && !sync.HasStateAuthority){
+            pourEffect.PrefetchAuthority();
         }
     }
     #endregion
