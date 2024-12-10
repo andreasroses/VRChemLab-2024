@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291d52eda5c2daf489ad0b25a20e3217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectHeight: 0.2
+  objectHeight: 0.15
   MaxWobble: 0.03
   WobbleSpeed: 0.8
   Recovery: 1.2
@@ -377,7 +377,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -440,12 +440,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sync: {fileID: 8548703974871879332}
+  empty: 0.332
+  full: 0.719
+  refill: 0.45
   liquidRend: {fileID: 4383881026463716345}
-  pourRate: 0.015
+  pourRate: 0.05
   pourSpeed: 0.5
   absorbSpeed: 0.5
   pourOrigin: {fileID: 4922693512489900287}
-  effect: {fileID: 887099064716695585}
   pd: {fileID: 7851543644551874411}
   rend: {fileID: 304263441217758753}
   highlightMaterialIndex: 0
@@ -462,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b52ca7dc27eb749ba4026cc87f1855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pourThreshold: 95
+  pourThreshold: 60
 --- !u!114 &887099064716695585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,6 +582,7 @@ MonoBehaviour:
   - rid: 2186520178578948134
   - rid: 2186520181995208704
   - rid: 2186520182489874538
+  - rid: 3095299182974730242
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -898,6 +901,47 @@ MonoBehaviour:
         memberType: 8
         parameterAssemblyTypes:
         - System.Int32, mscorlib
+        ownerType:
+          assemblyQualifiedName: LabContainer, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        defaultSyncMode: 0
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.CommandBinding, Coherence.Toolkit,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 3095299182974730242
+      type: {class: CommandBinding, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 3095299182974730243
+        routing: 1
+        syncMode: 0
+        isPredicted: 0
+        predictionMode: 0
+        guid: ae2b95ce393140b6afd00abd4ee3c201
+        archetypeData:
+          type: 0
+          minRange: 0
+          maxRange: 0
+          sampleRate: 0
+          floatCompression: 0
+          fields: []
+        unityComponent: {fileID: 2964234156748321492}
+        coherenceSync: {fileID: 8548703974871879332}
+        interpolationSettings: {fileID: 0}
+    - rid: 3095299182974730243
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: Refill
+        monoAssemblyType: 
+        required: 1
+        enforcesLODingWhenFieldsOverriden: 0
+        valueSyncCallbackName: 
+        memberType: 8
+        parameterAssemblyTypes: []
         ownerType:
           assemblyQualifiedName: LabContainer, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null

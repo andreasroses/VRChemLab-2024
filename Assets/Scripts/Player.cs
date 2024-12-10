@@ -1,10 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 public class Player : MonoBehaviour
 {
     [SerializeField] private InputActionProperty pourAction;
+    [SerializeField] private InputActionProperty refillAction;
     [Header("Interaction Settings")]
+    [SerializeField] private Transform leftController;
+    [SerializeField] private Transform rightController;
     [SerializeField] private Transform interactController;
     [SerializeField] private float interactRadius;
     [SerializeField] private LayerMask containersLayer;
@@ -13,12 +17,14 @@ public class Player : MonoBehaviour
     private float pourTimer = 0f;
     private LabContainer heldContainer;
     private LabContainer targetContainer;
+
     void Start()
     {
+        interactController = rightController;
 
+        refillAction.action.performed += context => OnRefill(context);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (pourTimer > 0)
@@ -33,12 +39,17 @@ public class Player : MonoBehaviour
         }
         if (checkForContainer(out container))
         {
-            if (targetContainer != container)
+
+            if (targetContainer != null && targetContainer != container)
             {
                 targetContainer?.HideHighlight();
-                targetContainer = container;
-                targetContainer.ShowHighlight();
             }
+            else if(targetContainer == null)
+            {
+                container.ShowHighlight();
+            }
+            
+            targetContainer = container;
 
             bool shouldPour = heldContainer.isSingleDropper
                 ? pourAction.action.WasPressedThisFrame()
@@ -47,7 +58,7 @@ public class Player : MonoBehaviour
             if (shouldPour)
             {
                 heldContainer.TryPour();
-                container.TryAbsorb(heldContainer.pourRate);
+                targetContainer.TryAbsorb(heldContainer.pourRate);
                 if (!heldContainer.isSingleDropper)
                 {
                     pourTimer = pourCooldown;
@@ -57,6 +68,7 @@ public class Player : MonoBehaviour
         else if (targetContainer != null)
         {
             targetContainer.HideHighlight();
+            targetContainer = null;
         }
 
     }
@@ -66,6 +78,15 @@ public class Player : MonoBehaviour
         if (heldContainer == null)
         {
             heldContainer = args.interactableObject.transform.GetComponent<LabContainer>()?.SelectLabContainer();
+        }
+
+        if (args.interactorObject.transform.gameObject.CompareTag("LeftInteractor"))
+        {
+            interactController = leftController;
+        }
+        else
+        {
+            interactController = rightController;
         }
     }
 
@@ -82,6 +103,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnRefill(InputAction.CallbackContext context)
+    {
+        if (heldContainer != null)
+        {
+            heldContainer.TryRefill();
+        }
+    }
+    
     private bool checkForContainer(out LabContainer foundContainer)
     {
         foundContainer = null;
@@ -98,7 +127,7 @@ public class Player : MonoBehaviour
                 continue;
 
             LabContainer container = c.GetComponent<LabContainer>();
-            if (container != null)
+            if (container != null && !container.isSingleDropper)
             {
                 float distance = Vector3.Distance(interactController.position, c.transform.position);
 

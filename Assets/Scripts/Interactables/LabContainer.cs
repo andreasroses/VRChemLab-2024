@@ -15,6 +15,10 @@ public class LabContainer : MonoBehaviour
     [Header("Network")]
     [SerializeField] CoherenceSync sync;
     [Header("Fill Effect")]
+    //have to set custom bottom and upper limits due to shader remapping
+    [SerializeField] private float empty;
+    [SerializeField] private float full;
+    [SerializeField] private float refill;
     [SerializeField] protected Renderer liquidRend;
     public float pourRate;
     [SerializeField] protected float pourSpeed;
@@ -72,6 +76,11 @@ public class LabContainer : MonoBehaviour
         }
     }
 
+    public void TryRefill(){
+        Refill();
+        sync.SendCommand<LabContainer>(nameof(Refill), MessageTarget.Other);
+    }
+    
     private void PrepareEffect(){
         if(isSingleDropper && !sync.HasStateAuthority){
             pourEffect.PrefetchAuthority();
@@ -86,7 +95,7 @@ public class LabContainer : MonoBehaviour
         if (isPouring) return;
 
         float currFill = liquidRend.material.GetFloat("_fill");
-        if (currFill >= -1 + pourRate)
+        if (currFill > empty)
         {
             if(isSingleDropper){
                 pourEffect.DisplayPour(pourOrigin.position);
@@ -103,7 +112,7 @@ public class LabContainer : MonoBehaviour
     {
         if (isPouring) return;
         float currFill = liquidRend.material.GetFloat("_fill");
-        if (currFill < 1 - pourRate)
+        if (currFill < full)
         {
             float endFill = currFill + addFill;
             LocalFillChange(currFill, endFill);
@@ -111,21 +120,20 @@ public class LabContainer : MonoBehaviour
         }
     }
 
+    [Command]
+    public void Refill(){
+        liquidRend.material.SetFloat("_fill", refill);
+    }
     public float GetMaterialFill()
     {
         return liquidRend.material.GetFloat("_fill");
-    }
-
-    public void StopPour()
-    {
-        //pourEffect.EndPour();
     }
 
     private IEnumerator SmoothFill(float startFill, float endFill, float speed)
     {
         float time = 0;
         isPouring = true;
-        while (time < 0.5)
+        while (time < 0.65)
         {
             time += Time.deltaTime * speed;
             

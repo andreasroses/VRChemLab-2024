@@ -9,7 +9,7 @@ public class PourDetector : MonoBehaviour
     [System.NonSerialized]public bool endPour = false;
     void Update()
     {
-        bool pourCheck = CalculatePourAngle() < pourThreshold;
+        bool pourCheck = CalculatePourAngle() > pourThreshold;
 
         if(isPouring != pourCheck){
             isPouring = pourCheck;
@@ -24,6 +24,6 @@ public class PourDetector : MonoBehaviour
 
     private float CalculatePourAngle(){
         // Debug.Log("Pour Angle: " + transform.forward.y * Mathf.Rad2Deg);
-        return Vector3.Angle(transform.forward, Vector3.up);
+        return Vector3.Angle(transform.up, Vector3.up);
     }
 }

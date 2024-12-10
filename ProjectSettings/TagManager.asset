@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LiquidInteractable
   - DropperParticles
+  - LeftInteractor
+  - RightInteractor
   layers:
   - Default
   - TransparentFX

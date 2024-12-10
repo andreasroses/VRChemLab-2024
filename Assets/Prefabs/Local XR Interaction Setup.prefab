@@ -3645,7 +3645,7 @@ GameObject:
   - component: {fileID: 6382944851283372519}
   m_Layer: 0
   m_Name: Direct Interactor
-  m_TagString: Untagged
+  m_TagString: LeftInteractor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3862,7 +3862,7 @@ GameObject:
   - component: {fileID: 241408054778948029}
   m_Layer: 0
   m_Name: Direct Interactor
-  m_TagString: Untagged
+  m_TagString: RightInteractor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4212,12 +4212,27 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 8420192657174191664, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
+  refillAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Refill
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 1054d6e0-7fa0-4ac3-9fa5-7de37b4027f7
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -4005155148789314642, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  leftController: {fileID: 1778728379703199811}
+  rightController: {fileID: 2000181485725708302}
   interactController: {fileID: 2000181485725708302}
   interactRadius: 0.18
   containersLayer:
     serializedVersion: 2
     m_Bits: 64
-  pourCooldown: 0.4
+  pourCooldown: 0.2
 --- !u!1 &5320846567489265390
 GameObject:
   m_ObjectHideFlags: 0
