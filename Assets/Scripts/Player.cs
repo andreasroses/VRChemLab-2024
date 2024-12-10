@@ -42,7 +42,8 @@ public class Player : MonoBehaviour
 
             if (targetContainer != null && targetContainer != container)
             {
-                targetContainer?.HideHighlight();
+                targetContainer.HideHighlight();
+                container.ShowHighlight();
             }
             else if(targetContainer == null)
             {
